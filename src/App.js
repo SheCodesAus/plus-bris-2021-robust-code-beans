@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav/Nav";
-import HomePage from ".pages/HomePage"
+import HomePage from "./pages/HomePage"
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm"
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm"
