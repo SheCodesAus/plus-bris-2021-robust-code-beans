@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import AdminPage from "./pages/AdminPage";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           <Switch>
             <Route path="/projects/">
               <HomePage />
+            </Route>
+            <Route path="/admin/">
+              <AdminPage />
             </Route>
           </Switch>
         </Router>
