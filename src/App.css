@@ -28,11 +28,21 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+/* .form {
+
+}
+
+.formcontent {
+
+} */
+
+.profile-list{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 30% 30% 30%;
+  grid-column-gap: 10px;
+  column-gap: 10px;
+  row-gap: 10px;
 }
