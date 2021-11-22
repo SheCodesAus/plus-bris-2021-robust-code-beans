@@ -1,11 +1,12 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav/Nav";
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
-import AdminLogin from "./components/AdminLoginForm/AdminLoginForm"
-import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm"
-import './App.css';
+import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
+import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
+import "./App.css";
+import Nav from "./components/Nav/Nav";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -29,12 +30,13 @@ function App() {
     <div className="App">
       <h1>Tech is Me.</h1>
       <Router>
+        <Nav />
         {/* TODO: add nav */}
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/admin" element={<AdminPage />} />
-          <Route exact path="/admin-login" element={<AdminLogin/>} />
-          <Route exact path="/create-profile" element={<CreateProfileForm/>} />
+          <Route exact path="/admin-login" element={<AdminLogin />} />
+          <Route exact path="/create-profile" element={<CreateProfileForm />} />
         </Routes>
       </Router>
     </div>
