@@ -32,7 +32,7 @@ export default function NavTabs() {
         {/* <LinkTab label="Home" href="/" /> */}
         <LinkTab label="About Us" href="/AboutUs" />
         <LinkTab label="Create Profile" href="/CreateProfile" />
-        <LinkTab label="Admin Login" href="/AdminLogin" />
+        <LinkTab label="Admin Login" href="/LoginPage" />
       </Tabs>
     </Box>
   );
