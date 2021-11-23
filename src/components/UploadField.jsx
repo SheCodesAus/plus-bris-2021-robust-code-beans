@@ -12,11 +12,19 @@ class UploadField extends Component {
         })
     }
 
-    fileUploadHandler=() => {
+    fileUploadHandler= async () => {
         console.log('api url:', REACT_APP_API_URL)
         const fd = new FormData();
         fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        axios.post(REACT_APP_API_URL, fd)  
+        await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
+            method: "post",
+            headers: {
+              Authorization: `Token ${window.localStorage.getItem("token")}`,
+              "Content-Type": "application/json",
+            },
+            // TODO: send profile data -> implement this on the CreateProfile component
+            body: JSON.stringify(),
+          });
         }
 
     render() {
