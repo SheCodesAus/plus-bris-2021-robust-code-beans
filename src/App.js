@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
+import UploadField from "./components/UploadField";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
+          <Route exact path="/upload-photo" element={<UploadField />} />
         </Routes>
       </Router>
     </div>
