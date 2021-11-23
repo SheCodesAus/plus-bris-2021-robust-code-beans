@@ -12,7 +12,7 @@ class UploadField extends Component {
     }
 
     fileUploadHandler= async () => {
-        console.log('api url:', REACT_APP_API_URL)
+        console.log('api url:', process.env.REACT_APP_API_URL)
         const fd = new FormData();
         fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
         await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
