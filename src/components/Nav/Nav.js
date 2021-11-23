@@ -30,9 +30,9 @@ export default function NavTabs() {
         aria-label="Tech Is Me Navigation Options"
       >
         {/* <LinkTab label="Home" href="/" /> */}
-        <LinkTab label="About Us" href="/AboutUs" />
-        <LinkTab label="Create Profile" href="/CreateProfile" />
-        <LinkTab label="Admin Login" href="/LoginPage" />
+        <LinkTab label="About Us" href="/about-us" />
+        <LinkTab label="Create Profile" href="/create-profile" />
+        <LinkTab label="Admin Login" href="/admin-login" />
       </Tabs>
     </Box>
   );
