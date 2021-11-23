@@ -1,38 +1,49 @@
 import React, { useState } from "react";
 import "./AdminLoginForm.css";
+import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
   const [credentials, setCredentials] = useState({
     username: "",
-    password: "",
+    password: ""
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setCredentials((prevCredentials) => ({
       ...prevCredentials,
-      [id]: value,
+      [id]: value
     }));
+  };
+
+  const postData = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}api-token-auth/`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(credentials)
+      }
+    );
+    return response.json();
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (credentials.username && credentials.password) {
-      fetch(`${process.env.REACT_APP_API_URL}api-token-auth/`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }).then((response) => {
-        console.log(response.json());
+      postData().then((response) => {
+        window.localStorage.setItem("token", response.token);
+        navigate("/admin");
       });
     }
   };
 
   return (
-    <div class="form">
-      <form class="formcontent">
+    <div className="form">
+      <form className="formcontent">
         <div>
           <label htmlFor="username">Username:</label>
           <input
@@ -52,13 +63,7 @@ function AdminLogin() {
           />
         </div>
         <div>
-          <button
-            type="submit"
-            onClick={() => {
-              console.log("Submitting admin login form");
-            }}
-            // onClick{handleSubmit}
-          >
+          <button type="submit" onClick={handleSubmit}>
             Log in
           </button>
         </div>

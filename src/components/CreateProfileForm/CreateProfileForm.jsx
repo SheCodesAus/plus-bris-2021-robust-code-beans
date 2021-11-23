@@ -1,5 +1,6 @@
 import React, { useState, useHistory } from "react";
 import "./CreateProfileForm.css";
+import { useNavigate } from "react-router-dom";
 
 function CreateProfileForm() {
   const [profileData, setProfileData] = useState({
@@ -8,7 +9,7 @@ function CreateProfileForm() {
     status: "Pending"
   });
 
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -28,7 +29,7 @@ function CreateProfileForm() {
       },
       body: JSON.stringify(profileData)
     });
-    // history.push("/");
+    navigate("/");
   };
 
   // fileUploadHandler=() => {
