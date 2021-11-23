@@ -11,7 +11,7 @@ function App() {
   const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
-    console.log("Hi");
+    console.log("App.js fetch");
     fetch(`${process.env.REACT_APP_API_URL}projects/`)
       .then((results) => {
         return results.json();

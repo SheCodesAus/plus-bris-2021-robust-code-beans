@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import SingleProfileCard from "../components/SingleProfile/SingleProfileCard";
-import ProfileCard from "../components/Profile/ProfileCard";
+// import ProfileCard from "../components/Profile/ProfileCard";
+import AdminProfileCard from "../components/AdminProfile/AdminProfileCard";
+
 
 function AdminPage() {
   const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
-    console.log("Hi");
+    console.log("admin page fetch");
     fetch(`${process.env.REACT_APP_API_URL}projects/`)
       .then((results) => {
         return results.json();
@@ -20,18 +21,24 @@ function AdminPage() {
       });
   }, []);
 
+  function filter_profiles(profile) {
+    return profile.status === "Pending";
+  }
+
+  const filtered = profileData.filter(filter_profiles)
+  console.log("filtered list: ", filtered)
+ 
 
 return (
   <div>
-    <h1>ADMIN PAGE</h1>
-    <div className="profile-list">
-      {profileData.filter(profile => profile.profileStatus === "Pending")
-      .map((profile, key) => {
-      return <ProfileCard key={key} profile={profile} />
-  })}
-  </div>
-  </div>
-);
+    <h2>ADMIN PAGE SHOWING PENDING PROFILES ONLY</h2>
+        <div className="profile-list">
+        {filtered.map((profile, key) => {
+          return <AdminProfileCard key={key} profile={profile} />
+      })}
+      </div>
+      </div>
+    );
 }
 
 export default AdminPage;
