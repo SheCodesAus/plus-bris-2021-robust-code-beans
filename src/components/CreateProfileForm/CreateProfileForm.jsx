@@ -31,6 +31,12 @@ function CreateProfileForm() {
     // history.push("/");
   };
 
+  // fileUploadHandler=() => {
+  //   const fd = new FormData();
+  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+  //   axios.post(`${process.env.REACT_APP_API_URL=http:/127.0.0.1:8000/}`, fd)
+  // }
+
   return (
     <div>
       <div class="form">
