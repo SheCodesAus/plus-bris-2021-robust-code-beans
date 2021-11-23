@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ProfileCard from "../components/Profile/ProfileCard";
-// import { allProfiles } from "../data";
+
 
 function HomePage() {
   const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
-    console.log("Hi");
+    console.log("homepage fetch");
     fetch(`${process.env.REACT_APP_API_URL}projects/`)
       .then((results) => {
         return results.json();
@@ -20,10 +20,17 @@ function HomePage() {
       });
   }, []);
 
+  function filter_profiles(profile) {
+    return profile.status === "Approved";
+  }
+
+  const filtered = profileData.filter(filter_profiles)
+  console.log("filtered list: ", filtered)
+
   return (
       <div>
         <div className="profile-list">
-        {profileData.map((profile, key) => {
+        {filtered.map((profile, key) => {
           return <ProfileCard key={key} profile={profile} />
       })}
       </div>
