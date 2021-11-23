@@ -7,6 +7,7 @@ import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
+import logo from "./images/tech_is_me_logo.jpg";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tech is Me.</h1>
+      <img src={logo} alt text="Tech Is Me Logo" />
       <Router>
         <Nav />
         {/* TODO: add nav */}
