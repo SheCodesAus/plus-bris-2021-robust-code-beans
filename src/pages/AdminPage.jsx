@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import ProfileCard from "../components/Profile/ProfileCard";
 import AdminProfileCard from "../components/AdminProfile/AdminProfileCard";
 
 
@@ -7,14 +6,14 @@ function AdminPage() {
   const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
-    console.log("admin page fetch");
-    fetch(`${process.env.REACT_APP_API_URL}projects/`)
+    // console.log("admin page fetch"); 
+    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
       .then((results) => {
         return results.json();
       })
       .then((data) => {
         setProfileData(data);
-        console.log("data: ", data);
+        // console.log("data: ", data);
       })
       .catch((e) => {
         console.log("OH NOOO: ", e);
@@ -26,7 +25,7 @@ function AdminPage() {
   }
 
   const filtered = profileData.filter(filter_profiles)
-  console.log("filtered list: ", filtered)
+  // console.log("filtered list: ", filtered)
  
 
 return (
