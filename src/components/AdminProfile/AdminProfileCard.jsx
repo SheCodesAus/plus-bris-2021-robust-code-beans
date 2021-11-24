@@ -6,6 +6,8 @@ const AdminProfileCard = (props) => {
   const [status, setStatus] = useState();
 
   const processProfile = async (profile, result) => {
+    const token = window.localStorage.getItem("token");
+    console.log("token", token);
   console.log("clicked approved", profile.id);
 
   if (result === "Approved") {
@@ -15,9 +17,11 @@ const AdminProfileCard = (props) => {
     profile.status = "Declined";
   }
     console.log("UPDATING STATUS");
+
   fetch(`${process.env.REACT_APP_API_URL}profiles/${profile.id}/`, {
     method: "PUT",
     headers: {
+      Authorization: `Token ${token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(profile),
