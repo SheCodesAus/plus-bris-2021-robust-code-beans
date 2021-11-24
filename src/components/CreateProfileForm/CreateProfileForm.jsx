@@ -7,7 +7,7 @@ function CreateProfileForm() {
     is_open: true,
   });
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -27,7 +27,7 @@ function CreateProfileForm() {
       },
       body: JSON.stringify(profileData),
     });
-    history.push("/");
+    // history.push("/");
   };
 
   return (
