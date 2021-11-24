@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
+// import AboutUs from "./pages/AboutUs";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
 import "./App.css";
-import Nav from "./components/Nav/Nav";
-import logo from "./images/tech_is_me_logo.jpg";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -29,15 +29,14 @@ function App() {
 
   return (
     <div className="App">
-      <img src={logo} alt text="Tech Is Me Logo" />
       <Router>
-        <Nav />
-        {/* TODO: add nav */}
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
+          {/* <Route exact path="/about" element={<AboutUs />} /> */}
         </Routes>
       </Router>
     </div>
