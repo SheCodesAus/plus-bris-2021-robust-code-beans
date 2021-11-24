@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     console.log("App.js fetch");
-    fetch(`${process.env.REACT_APP_API_URL}projects/`)
+    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
       .then((results) => {
         return results.json();
       })
