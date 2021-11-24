@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
-// import AboutUs from "./pages/AboutUs";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
@@ -36,7 +35,6 @@ function App() {
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
-          {/* <Route exact path="/about" element={<AboutUs />} /> */}
         </Routes>
       </Router>
     </div>
