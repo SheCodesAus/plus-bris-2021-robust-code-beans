@@ -30,7 +30,7 @@ function AdminPage() {
 
 return (
   <div>
-    <h2>ADMIN PAGE SHOWING PENDING PROFILES ONLY</h2>
+    <h3>ADMIN PAGE SHOWING PENDING PROFILES ONLY</h3>
         <div className="profile-list">
         {filtered.map((profile, key) => {
           return <AdminProfileCard key={key} profile={profile} />

@@ -41,7 +41,6 @@ console.log("decline")
   return (
     <div className="profile-card">
       <form>
-        <h3>form start</h3>
         <button onClick={() => processProfile(profile, "Approved")}>Approved</button>
         <button onClick={() => processProfile(profile, "Declined")}>Declined</button>
       </form>
