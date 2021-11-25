@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="App">
       <img src={logo} alt text="Tech is Me Logo" />
-      <Router>
+       <Router>
         <Nav />
         {/* TODO: add nav */}
         <Routes>
