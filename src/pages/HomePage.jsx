@@ -29,6 +29,7 @@ function HomePage() {
 
   return (
       <div>
+        <h3>HOMEPAGE SHOWING APPROVED PROFILES ONLY</h3>
         <div className="profile-list">
         {filtered.map((profile, key) => {
           return <ProfileCard key={key} profile={profile} />
