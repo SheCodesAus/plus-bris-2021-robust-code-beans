@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import SearchIcon from '@mui/icons-material/Search';
 
 function SearchBar({ placeholder, data }) {
     const [searchedData, setSearchedData] = useState([])
@@ -23,8 +24,8 @@ function SearchBar({ placeholder, data }) {
                 <div className="searchIcon">
                 </div>
             </div>
-            {searchedData.length != 0 && (
-            <div className="dataResult">
+            {searchedData.length !== 0 && (
+            <div className="=profile-list">
                 {searchedData.map((profile, key) => {
                     return (
                         <div className="profile-card">
