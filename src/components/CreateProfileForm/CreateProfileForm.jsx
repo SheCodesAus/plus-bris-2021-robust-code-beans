@@ -44,7 +44,7 @@ function CreateProfileForm() {
       console.log("response: ", response)
       return response.json();
     });
-    navigate("/");
+    navigate("/confirm-submit");
   };
 
   // fileUploadHandler=() => {

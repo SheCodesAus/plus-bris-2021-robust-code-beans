@@ -9,6 +9,7 @@ import UploadField from "./components/UploadField";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
 import logo from "./images/tech_is_me_logo.jpg";
+import ConfirmSubmit from "./components/ConfirmSubmit/ConfirmSubmit";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -40,6 +41,7 @@ function App() {
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
           <Route exact path="/upload-photo" element={<UploadField />} />
+          <Route exact path="/confirm-submit" element={<ConfirmSubmit />} /> 
         </Routes>
       </Router>
     </div>
