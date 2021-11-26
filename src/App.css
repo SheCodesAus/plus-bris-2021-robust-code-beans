@@ -45,6 +45,17 @@
   row-gap: 10px;
 }
 
-h3 {
+p {
+  font-size: large;
+  margin: 5%;
+}
+
+.focus {
+  color: blue;
+}
+
+h1 {
+  font-size: 30px;
   text-align: center;
+  color: #fff;
 }
