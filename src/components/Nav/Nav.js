@@ -2,11 +2,12 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import { Link } from "react-router-dom";
 
 function LinkTab(props) {
   return (
     <Tab
-      component="a"
+      component={Link}
       onClick={(event) => {
         event.preventDefault();
       }}
@@ -29,10 +30,9 @@ export default function NavTabs() {
         onChange={handleChange}
         aria-label="Tech Is Me Navigation Options"
       >
-        {/* <LinkTab label="Home" href="/" /> */}
-        <LinkTab label="About Us" href="/about-us" />
-        <LinkTab label="Create Profile" href="/create-profile" />
-        <LinkTab label="Admin Login" href="/admin-login" />
+        <LinkTab component={Link} label="About Us" to="/about-us" />
+        <LinkTab component={Link} label="Create Profile" to="/create-profile" />
+        <LinkTab component={Link} label="Admin Login" to="/admin-login" />
       </Tabs>
     </Box>
   );

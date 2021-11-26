@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
@@ -32,16 +31,15 @@ function App() {
   return (
     <div className="App">
       <img src={logo} alt text="Tech is Me Logo" />
-       <Router>
+      <Router>
         <Nav />
-        {/* TODO: add nav */}
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
           <Route exact path="/upload-photo" element={<UploadField />} />
-          <Route exact path="/confirm-submit" element={<ConfirmSubmit />} /> 
+          <Route exact path="/confirm-submit" element={<ConfirmSubmit />} />
         </Routes>
       </Router>
     </div>
