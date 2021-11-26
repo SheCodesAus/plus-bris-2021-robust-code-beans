@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Nav from "./components/Nav/Nav";
 import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
 import UploadField from "./components/UploadField";
 import "./App.css";
-import Nav from "./components/Nav/Nav";
-import logo from "./images/tech_is_me_logo.jpg";
+import Navbar from "./components/Nav/Navbar";
 import ConfirmSubmit from "./components/ConfirmSubmit/ConfirmSubmit";
+import About from "./components/About/About";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -31,17 +30,18 @@ function App() {
 
   return (
     <div className="App">
-      <img src={logo} alt text="Tech is Me Logo" />
-       <Router>
-        <Nav />
-        {/* TODO: add nav */}
+      <Router>
+        <div>
+          <Navbar />
+        </div>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/about" element={<About />} />
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />
           <Route exact path="/upload-photo" element={<UploadField />} />
-          <Route exact path="/confirm-submit" element={<ConfirmSubmit />} /> 
+          <Route exact path="/confirm-submit" element={<ConfirmSubmit />} />
         </Routes>
       </Router>
     </div>
