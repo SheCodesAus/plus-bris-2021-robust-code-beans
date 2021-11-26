@@ -9,13 +9,13 @@ const ProfileCard = (props) => {
   return (
     <div className="profile-card">
       <p>{profile.id}</p>
-      <p>{profile.first_name}</p>
       <p>{profile.photo}</p>
-      <p>{profile.gender}</p>
-      <p>{profile.bio}</p>
-      <p>{profile.role}</p>
-      <p>{profile.company}</p>
-      <p>{profile.facts}</p>
+      <p>{profile.first_name}</p>
+      <p>Gender: {profile.gender}</p>
+      <p>Profile: {profile.bio}</p>
+      <p>Role: {profile.role}</p>
+      <p>Company: {profile.company}</p>
+      <p>Facts! {profile.facts}</p>
       <p>
         <a href={profile.linkedin}>
           <img
@@ -26,8 +26,8 @@ const ProfileCard = (props) => {
           />
         </a>
       </p>
-      <p>{profile.status}</p>
-      <p>{formattedDate}</p>
+      {/* <p>{profile.status}</p> */}
+      <p>Posted: {formattedDate}</p>
     </div>
   );
 };
