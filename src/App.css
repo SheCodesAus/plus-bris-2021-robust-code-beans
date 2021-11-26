@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -26,9 +26,7 @@
 
 .App-link {
   color: #61dafb;
-}
-
-
+} */
 
 /* .form {
 
@@ -38,7 +36,7 @@
 
 } */
 
-.profile-list{
+.profile-list {
   display: grid;
   justify-content: center;
   grid-template-columns: 30% 30% 30%;

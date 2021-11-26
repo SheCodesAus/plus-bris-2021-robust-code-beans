@@ -6,7 +6,7 @@ import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
 import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm";
 import UploadField from "./components/UploadField";
 import "./App.css";
-import Nav from "./components/Nav/Nav";
+import Navbar from "./components/Nav/Navbar";
 import logo from "./images/tech_is_me_logo.jpg";
 import ConfirmSubmit from "./components/ConfirmSubmit/ConfirmSubmit";
 
@@ -30,9 +30,9 @@ function App() {
 
   return (
     <div className="App">
-      <img src={logo} alt text="Tech is Me Logo" />
+      <img src={logo} alt text="Tech is Me Logo" align="center" />
       <Router>
-        <Nav />
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/admin" element={<AdminPage />} />
