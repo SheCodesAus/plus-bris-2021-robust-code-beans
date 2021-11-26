@@ -7,8 +7,8 @@ import CreateProfileForm from "./components/CreateProfileForm/CreateProfileForm"
 import UploadField from "./components/UploadField";
 import "./App.css";
 import Navbar from "./components/Nav/Navbar";
-import logo from "./images/tech_is_me_logo.jpg";
 import ConfirmSubmit from "./components/ConfirmSubmit/ConfirmSubmit";
+import About from "./components/About/About";
 
 function App() {
   const [profileData, setProfileData] = useState([]);
@@ -30,11 +30,13 @@ function App() {
 
   return (
     <div className="App">
-      <img src={logo} alt text="Tech is Me Logo" align="center" />
       <Router>
-        <Navbar />
+        <div>
+          <Navbar />
+        </div>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/about" element={<About />} />
           <Route exact path="/admin" element={<AdminPage />} />
           <Route exact path="/admin-login" element={<AdminLogin />} />
           <Route exact path="/create-profile" element={<CreateProfileForm />} />

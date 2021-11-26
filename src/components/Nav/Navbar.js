@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import DrawerComponent from "../Drawer/Drawer";
+import Logo from "../Nav/tech_is_me_logo.jpg";
 
 const useStyles = makeStyles((theme) => ({
   navlinks: {
@@ -22,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "#000",
     fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    marginLeft: theme.spacing(15),
     "&:hover": {
-      color: "yellow",
-      borderBottom: "1px solid white",
+      color: "#fcc467",
+      borderBottom: "2px solid #fcc467",
     },
   },
 }));
@@ -40,10 +41,8 @@ function Navbar() {
   return (
     <AppBar position="static">
       <CssBaseline />
-      <Toolbar>
-        {/* <Typography variant="h4" className={classes.logo}>
-          Navbar
-        </Typography> */}
+      <Toolbar style={{ background: "#ffffff" }}>
+        <img src={Logo} />
         {isMobile ? (
           <DrawerComponent />
         ) : (

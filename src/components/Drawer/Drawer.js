@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   link: {
     textDecoration: "none",
-    color: "blue",
+    color: "#000",
     fontSize: "20px",
   },
   icon: {
