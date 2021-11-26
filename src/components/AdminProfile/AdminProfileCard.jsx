@@ -8,7 +8,7 @@ const AdminProfileCard = (props) => {
   const processProfile = async (profile, result) => {
     const token = window.localStorage.getItem("token");
     console.log("token", token);
-  console.log("clicked approved", profile.id);
+  console.log("clicked approved on profile:", profile.id);
 
   if (result === "Approved") {
     profile.status = "Approved";
@@ -40,21 +40,30 @@ console.log("decline")
 
   return (
     <div className="profile-card">
+          <p>Current status: {profile.status}</p>
       <form>
         <button onClick={() => processProfile(profile, "Approved")}>Approved</button>
         <button onClick={() => processProfile(profile, "Declined")}>Declined</button>
       </form>
-      <p>{profile.status}</p>
       <p>{profile.id}</p>
-      <p>{profile.first_name}</p>
       <p>{profile.photo}</p>
-      <p>{profile.gender}</p>
-      <p>{profile.bio}</p>
-      <p>{profile.role}</p>
-      <p>{profile.company}</p>
-      <p>{profile.facts}</p>
-      <p>{profile.linkedin}</p>
-      <p>{formattedDate}</p>
+      <p>{profile.first_name}</p>
+      <p>Gender: {profile.gender}</p>
+      <p>Profile: {profile.bio}</p>
+      <p>Role: {profile.role}</p>
+      <p>Company: {profile.company}</p>
+      <p>Facts! {profile.facts}</p>
+      <p>
+        <a href={profile.linkedin}>
+          <img
+            src={
+              "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
+            }
+            alt="Linkedinlogo"
+          />
+        </a>
+      </p>
+      <p>Posted: {formattedDate}</p>
     </div>
   );
 };
