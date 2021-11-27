@@ -12,12 +12,13 @@ const ProfileCard = ({ profile, featured }) => {
         )
       }
       <p>{profile.id}</p>
-      <p>{profile.photo}</p>
+      <img className="profile-photo" src={profile.photo}/>
       <p>{profile.first_name}</p>
       <p>Gender: {profile.gender}</p>
       <p>Profile: {profile.bio}</p>
       <p>Role: {profile.role}</p>
       <p>Company: {profile.company}</p>
+      <p>Experience: {profile.experience}</p>
       <p>Facts! {profile.facts}</p>
       <p>
         <a href={profile.linkedin}>

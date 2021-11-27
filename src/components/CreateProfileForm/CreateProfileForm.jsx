@@ -1,9 +1,11 @@
 import React, { useState, useHistory } from "react";
 import { useNavigate } from "react-router-dom";
+// import "./CreateProfileForm.css";
+import axios from "axios";
 import "../../App.css";
 
-
 function CreateProfileForm() {
+  const [selectedFile, setSelectedFile] = useState(null)
   const [profileData, setProfileData] = useState({
     status: "Pending",
     first_name: "",
@@ -31,15 +33,33 @@ function CreateProfileForm() {
   };
 
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log("submitData: ", profileData)
+ 
+ const fileSelectedHandler = event => {        
+  setSelectedFile(event.target.files[0])
+}
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submitData: ", profileData)
+    // Step 1 - UPLOAD PHOTO TO CLOUNDINARY
+    const fd = new FormData();
+    fd.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
+    fd.append('file', selectedFile);
+    fd.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+    const upload_response = await axios.post (`https://api.cloudinary.com/v1_1/tech-is-me/image/upload`, fd);
+
+    // GET THE PHOTO URL FROM CLOUNDINARY AFTER UPLOAD
+    const photoURL= upload_response.data.url
+
+    // SENDING INFORMATION TO DRF WITH THE URL
     const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(profileData)
+      body: JSON.stringify({ ...profileData, photo: photoURL })
     }).then((response) => {
       console.log("response: ", response)
       console.log("Hi world")
@@ -138,16 +158,21 @@ function CreateProfileForm() {
               onChange={handleChange}
             />
           </div>
-          <div>
+          {/* <div>
             <label>Profile photo: </label>
             <input
               className="formlines"
               value={profileData.photo}
               type="text"
               id="photo"
-              placeholder="Attach your profile picture here"
+              placeholder="Copy your photo link"
               onChange={handleChange}
             />
+          </div> */}
+          <div> 
+            <label> Upload Photo: </label>
+            <input type="file" onChange={fileSelectedHandler}/>
+
           </div>
           <div>
             <button class="button" type="submit" onClick={handleSubmit}>
