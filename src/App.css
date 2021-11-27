@@ -26,15 +26,7 @@
 
 .App-link {
   color: #61dafb;
-} */
-
-/* .form {
-
 }
-
-.formcontent {
-
-} */
 
 .profile-list {
   display: grid;
@@ -58,4 +50,30 @@ h1 {
   font-size: 30px;
   text-align: center;
   color: #fff;
+.form {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  width: 70%;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
+  background-color: cornflowerblue;
+}
+
+label {
+  display: inline-block;
+  width: 250px;
+  text-align: right;
+  margin-right: 1em;
+}
+
+.formlines {
+  display: inline-block;
+  margin-left: 46px;
+  width: 20em;
+}
+
+.button {
+  float: right;
+  margin: 10px;
 }
