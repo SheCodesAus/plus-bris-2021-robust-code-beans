@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./AdminLoginForm.css";
 import { useNavigate } from "react-router-dom";
+import "../../App.css";
 
 function AdminLogin() {
   const [credentials, setCredentials] = useState({
@@ -66,7 +66,7 @@ function AdminLogin() {
           />
         </div>
         <div>
-          <button type="submit" onClick={handleSubmit}>
+          <button class="button" type="submit" onClick={handleSubmit}>
             Log in
           </button>
         </div>
