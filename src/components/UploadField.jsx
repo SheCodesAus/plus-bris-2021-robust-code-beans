@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import axios from "axios";
 
 class UploadField extends Component {
     state = {
@@ -14,17 +15,11 @@ class UploadField extends Component {
     fileUploadHandler= async () => {
         console.log('api url:', process.env.REACT_APP_API_URL)
         const fd = new FormData();
-        fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-        await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
-            method: "post",
-            headers: {
-              Authorization: `Token ${window.localStorage.getItem("token")}`,
-              "Content-Type": "application/json",
-            },
-            // TODO: send profile data -> implement this on the CreateProfile component
-            body: JSON.stringify(),
-          });
-        }
+        fd.append("api_key", process.env.CLOUDINARY_API_KEY);
+        fd.append('file', this.state.selectedFile);
+        fd.append('upload_preset', process.env.CLOUDINARY_UPLOAD_PRESET);
+        await axios.post (`https://api.cloudinary.com/v1_1/tech-is-me/image/upload`, fd);
+    }
 
     render() {
         return (
