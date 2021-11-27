@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useHistory } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CreateProfileForm.css";
 import axios from "axios";
+import "../../App.css";
 
 function CreateProfileForm() {
   const [selectedFile, setSelectedFile] = useState(null)
@@ -62,12 +63,6 @@ function CreateProfileForm() {
     navigate("/confirm-submit");
   };
 
-  // fileUploadHandler=() => {
-  //   const fd = new FormData();
-  //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-  //   axios.post(`${process.env.REACT_APP_API_URL=http:/127.0.0.1:8000/}`, fd)
-  // }
-
   return (
     <div>
       <div class="form">
@@ -75,6 +70,7 @@ function CreateProfileForm() {
           <div>
             <label for="first_name">First Name: </label>
             <input
+              className="formlines"
               value={profileData.first_name}
               type="text"
               id="first_name"
@@ -93,6 +89,7 @@ function CreateProfileForm() {
           <div>
             <label for="role">Role: </label>
             <input
+              className="formlines"
               value={profileData.role}
               type="text"
               id="role"
@@ -103,6 +100,7 @@ function CreateProfileForm() {
           <div>
             <label for="company">Company: </label>
             <input
+              className="formlines"
               value={profileData.company}
               type="text"
               id="company"
@@ -125,6 +123,7 @@ function CreateProfileForm() {
           <div>
             <label for="bio">Bio: </label>
             <input
+              className="formlines"
               value={profileData.bio}
               type="text"
               id="bio"
@@ -135,6 +134,7 @@ function CreateProfileForm() {
           <div>
             <label for="facts">Fun Facts: </label>
             <input
+              className="formlines"
               value={profileData.facts}
               type="text"
               id="facts"
@@ -145,6 +145,7 @@ function CreateProfileForm() {
           <div>
             <label for="linkedin">Linkedin: </label>
             <input
+              className="formlines"
               value={profileData.linkedin}
               type="text"
               id="linkedin"
@@ -155,6 +156,7 @@ function CreateProfileForm() {
           {/* <div>
             <label>Profile photo: </label>
             <input
+              className="formlines"
               value={profileData.photo}
               type="text"
               id="photo"
@@ -168,7 +170,7 @@ function CreateProfileForm() {
 
           </div>
           <div>
-            <button type="submit" onClick={handleSubmit}>
+            <button class="button" type="submit" onClick={handleSubmit}>
               Submit
             </button>
           </div>
