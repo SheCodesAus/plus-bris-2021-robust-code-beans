@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import ProfileCard from "../components/Profile/ProfileCard";
 import SearchBar from "../components/SearchBar";
 
+function getRandomProfileToFeature(profiles) {
+  const featuredProfile = profiles[Math.floor(Math.random() * profiles.length)]
+  return featuredProfile
+}
+
 function HomePage() {
   const [profileData, setProfileData] = useState([]);
 
@@ -23,35 +28,28 @@ function HomePage() {
   function filter_profiles(profile) {
     return profile.status === "Approved";
   }
-  const filtered = profileData.filter(filter_profiles);
-  console.log("filtered list: ", filtered);
-
+  // const filtered = profileData.filter(filter_profiles);
+  const filtered = []
+  console.log('filtered:', filtered);
+  
   return (
     <div>
-      <SearchBar placeholder="Search profiles..." data={filtered} />
-      {/* <div>
-        {feature_profile}
-      </div> */}
-      {filtered.map((profile, key) => {
-        if(profile.id === 1){
-          return (
-            <div className="Feature-Profile"> 
-              <ProfileCard key={key + 100} profile={profile} />
-            </div>
-          )
-        } else {
-          return '';
-        }
-        })}
+      { !filtered.length &&
+        <div><h1 style={{ color: 'red' }}>Nope</h1></div>
+      }
+      { filtered.length > 0 &&
+        <>
+        <SearchBar placeholder="Search profiles..." data={filtered} />
+        <ProfileCard profile={getRandomProfileToFeature(filtered)} featured={true} />
 
-      <h3>HOMEPAGE SHOWING APPROVED PROFILES ONLY</h3>
-
-      <div className="profile-list">
-        {filtered.map((profile, key) => {
-          return <ProfileCard key={key} profile={profile} />;
-        })}
-      </div>
- 
+        <h3>HOMEPAGE SHOWING APPROVED PROFILES ONLY</h3>
+        <div className="profile-list">
+          {filtered.map((profile, key) => {
+            return <ProfileCard key={key} profile={profile} featured={false} />;
+          })}
+        </div>
+        </>  
+      }
     </div>
   );
 }

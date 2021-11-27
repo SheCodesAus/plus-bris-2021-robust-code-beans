@@ -1,13 +1,16 @@
 import React from "react";
 import "./ProfileCard.css";
 
-const ProfileCard = (props) => {
-  const { profile } = props;
-
+const ProfileCard = ({ profile, featured }) => {
   const formattedDate = new Date(profile.date_created).toLocaleDateString();
 
   return (
-    <div className="profile-card">
+    <div className={featured ? 'featured-profile-card' : 'profile-card'}>
+      {
+        featured && (
+          <h1 className='featured-profile-title'>Meet our Featured Person</h1>
+        )
+      }
       <p>{profile.id}</p>
       <p>{profile.photo}</p>
       <p>{profile.first_name}</p>
