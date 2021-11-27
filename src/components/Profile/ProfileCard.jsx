@@ -9,7 +9,7 @@ const ProfileCard = (props) => {
   return (
     <div className="profile-card">
       <p>{profile.id}</p>
-      <p>{profile.photo}</p>
+      <img className="profile-photo" src={profile.photo}/>
       <p>{profile.first_name}</p>
       <p>Gender: {profile.gender}</p>
       <p>Profile: {profile.bio}</p>
