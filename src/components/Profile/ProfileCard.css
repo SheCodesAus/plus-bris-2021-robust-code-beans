@@ -5,9 +5,13 @@
   margin-top: 5%;
   text-align: center;
 }
+
+.featured-profile-card {
+  background-color: blueviolet;
+}
+
 .profile-photo {
 width: 100px;
 height: 100px;
 border-radius: 100%;
-
 }

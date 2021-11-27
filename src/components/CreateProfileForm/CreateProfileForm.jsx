@@ -1,6 +1,6 @@
 import React, { useState, useHistory } from "react";
 import { useNavigate } from "react-router-dom";
-import "./CreateProfileForm.css";
+// import "./CreateProfileForm.css";
 import axios from "axios";
 import "../../App.css";
 
@@ -23,14 +23,19 @@ function CreateProfileForm() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    console.log("handle change")
     const { id, value } = e.target;
-    setProfileData((prevProfileData) => ({
-      ...prevProfileData,
+    setProfileData({    
+      ...profileData,
       [id]: value,
-    })); 
+    }); 
     console.log("profileData: ", profileData)
   };
 
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log("submitData: ", profileData)
  
  const fileSelectedHandler = event => {        
   setSelectedFile(event.target.files[0])
@@ -52,14 +57,14 @@ function CreateProfileForm() {
     const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
       method: "post",
       headers: {
-        // Authorization: `Token ${window.localStorage.getItem("token")}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ ...profileData, photo: photoURL })
     }).then((response) => {
       console.log("response: ", response)
+      console.log("Hi world")
       return response.json();
-    });
+    })
     navigate("/confirm-submit");
   };
 

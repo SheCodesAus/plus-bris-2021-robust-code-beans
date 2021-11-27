@@ -50,3 +50,9 @@ label {
   float: right;
   margin: 10px;
 }
+
+.feature-profile {
+  border-style: solid;
+  border: black;
+  background-color: blueviolet;
+}
