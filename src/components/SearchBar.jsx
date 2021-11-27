@@ -15,7 +15,7 @@ function SearchBar({ placeholder, data }) {
         } else {
            setSearchedData(newFilter)
        }
-    }
+      }
 
     return (
         <div className="search">
@@ -55,7 +55,7 @@ function SearchBar({ placeholder, data }) {
         </div>
             )}
         </div>
-    )
-}
+    )}
+
 
 export default SearchBar
