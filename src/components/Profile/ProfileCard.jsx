@@ -15,6 +15,7 @@ const ProfileCard = (props) => {
       <p>Profile: {profile.bio}</p>
       <p>Role: {profile.role}</p>
       <p>Company: {profile.company}</p>
+      <p>Experience: {profile.experience}</p>
       <p>Facts! {profile.facts}</p>
       <p>
         <a href={profile.linkedin}>
