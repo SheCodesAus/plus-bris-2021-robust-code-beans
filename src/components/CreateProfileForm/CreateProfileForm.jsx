@@ -20,30 +20,30 @@ function CreateProfileForm() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    console.log("handle change")
     const { id, value } = e.target;
-    setProfileData((prevProfileData) => ({
-      ...prevProfileData,
+    setProfileData({    
+      ...profileData,
       [id]: value,
-    })); 
+    }); 
     console.log("profileData: ", profileData)
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("profileData: ", profileData)
-    // console.log("profileDataExperience: ", profileData.experience)
-    // console.log("profileDataExperience: ", profileData.gender)
+    console.log("submitData: ", profileData)
     const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
       method: "post",
       headers: {
-        // Authorization: `Token ${window.localStorage.getItem("token")}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(profileData)
     }).then((response) => {
       console.log("response: ", response)
+      console.log("Hi world")
       return response.json();
-    });
+    })
     navigate("/confirm-submit");
   };
 

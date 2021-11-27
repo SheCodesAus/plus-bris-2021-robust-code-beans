@@ -48,3 +48,9 @@
 h3 {
   text-align: center;
 }
+
+.feature-profile {
+  border-style: solid;
+  border: black;
+  background-color: blueviolet;
+}
