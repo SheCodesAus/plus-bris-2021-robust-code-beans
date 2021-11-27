@@ -2,11 +2,20 @@ import React, { useState, useHistory } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
 
+
 function CreateProfileForm() {
   const [profileData, setProfileData] = useState({
+    status: "Pending",
+    first_name: "",
+    bio: "",
+    gender: "",
+    role: "", 
+    company: "", 
+    experience: "",
+    facts: "",
+    linkedin: "",
+    photo: "",
     date_created: new Date().toISOString(),
-    // is_open: true,
-    status: "Pending"
   });
 
   const navigate = useNavigate();
@@ -15,21 +24,28 @@ function CreateProfileForm() {
     const { id, value } = e.target;
     setProfileData((prevProfileData) => ({
       ...prevProfileData,
-      [id]: value
-    }));
+      [id]: value,
+    })); 
+    console.log("profileData: ", profileData)
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch(`${process.env.REACT_APP_API_URL}projects/`, {
+    // console.log("profileData: ", profileData)
+    // console.log("profileDataExperience: ", profileData.experience)
+    // console.log("profileDataExperience: ", profileData.gender)
+    const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
       method: "post",
       headers: {
-        Authorization: `Token ${window.localStorage.getItem("token")}`,
+        // Authorization: `Token ${window.localStorage.getItem("token")}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(profileData)
+    }).then((response) => {
+      console.log("response: ", response)
+      return response.json();
     });
-    navigate("/");
+    navigate("/confirm-submit");
   };
 
   return (
@@ -49,11 +65,7 @@ function CreateProfileForm() {
           </div>
           <div>
             <label for="gender">Gender: </label>
-            <select
-              className="formlines"
-              id="gender_choices"
-              name="gender_choices"
-            >
+            <select id="gender" name="gender" onChange={handleChange}>
               <option value="Woman">Woman</option>
               <option value="Non-binary">Non Binary</option>
               <option value="not_set">Prefer not to disclose</option>
@@ -83,11 +95,7 @@ function CreateProfileForm() {
           </div>
           <div>
             <label for="experience">Experience: </label>
-            <select
-              className="formlines"
-              id="experience_choices"
-              name="experience_choices"
-            >
+            <select id="experience" name="experience" onChange={handleChange}>
               <option value=""> </option>
               <option value="not_set">Prefer not to disclose</option>
               <option value="1-3">1-3 years</option>
@@ -115,7 +123,7 @@ function CreateProfileForm() {
               value={profileData.facts}
               type="text"
               id="facts"
-              placeholder="List one or more fun fact about yourself"
+              placeholder="List one or more fun facts about yourself"
               onChange={handleChange}
             />
           </div>
