@@ -34,7 +34,6 @@ function HomePage() {
       });
   }, []);
 
-
   const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
@@ -42,7 +41,7 @@ function HomePage() {
       (profile) => profile.gender === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByGender
     });
   };
@@ -54,7 +53,7 @@ function HomePage() {
       (profile) => profile.experience === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByExperience
     });
   };
@@ -88,24 +87,29 @@ function HomePage() {
       <span className="focus"></span>
 
       {profileData && profileData.filteredData.length > 0 ? (
-      <>
-        <SearchBar placeholder="Search profiles..." data={profileData.initialData} />
-        <ProfileCard
-          profile={getRandomProfileToFeature(profileData.filteredData)}
-          featured={true}
-        />
-        <h3>APPROVED PROFILES</h3>
-        <div className="profile-list">
-          {profileData.filteredData.map((profile, key) => {
-            return (
-              <ProfileCard key={key} profile={profile} featured={false} />
-            );
-          })}
-        </div>
-      </>
+        <>
+          <SearchBar
+            placeholder="Search profiles..."
+            data={profileData.initialData}
+          />
+          <ProfileCard
+            profile={getRandomProfileToFeature(profileData.filteredData)}
+            featured={true}
+          />
+          <h3>APPROVED PROFILES</h3>
+          <div className="profile-list">
+            {profileData.filteredData.map((profile, key) => {
+              return (
+                <ProfileCard key={key} profile={profile} featured={false} />
+              );
+            })}
+          </div>
+        </>
       ) : (
         <div>
-          <h1 style={{ color: "red" }}>Nope</h1>
+          <h1 style={{ color: "red" }}>
+            There are no profiles that fit your criteria. Please try again.
+          </h1>
         </div>
       )}
     </div>
