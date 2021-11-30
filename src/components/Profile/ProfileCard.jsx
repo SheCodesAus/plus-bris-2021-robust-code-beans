@@ -5,33 +5,36 @@ const ProfileCard = ({ profile, featured }) => {
   const formattedDate = new Date(profile.date_created).toLocaleDateString();
 
   return (
-    <div className={featured ? 'featured-profile-card' : 'profile-card'}>
-      {
-        featured && (
-          <h1 className='featured-profile-title'>Meet our Featured Person</h1>
-        )
-      }
-      <p>{profile.id}</p>
-      <img className="profile-photo" src={profile.photo}/>
-      <p>{profile.first_name}</p>
-      <p>Gender: {profile.gender}</p>
-      <p>Profile: {profile.bio}</p>
-      <p>Role: {profile.role}</p>
-      <p>Company: {profile.company}</p>
-      <p>Experience: {profile.experience}</p>
-      <p>Facts! {profile.facts}</p>
-      <p>
-        <a href={profile.linkedin}>
-          <img
-            src={
-              "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
-            }
-            alt="Linkedinlogo"
-          />
-        </a>
-      </p>
+    
+    <div className={featured ? "featured-profile-card" : "profile-card"}>
+      <div className="feature-column-a">
+        {/* <p>{profile.id}</p> */}
+      {featured && (
+        <p className="featured-profile-title">Meet {profile.first_name}</p>
+      )}
+        <img className="profile-photo" src={profile.photo} />
+        <h2>{profile.first_name}</h2>
+        <p>Gender: {profile.gender}</p>
+        <p>Company: {profile.company}</p>
+        <p>Role: {profile.role}</p>
+        <p>Experience: {profile.experience} years</p>
+      </div>
+      <div>
+        <p>{profile.bio}</p>
+        <p>Facts! {profile.facts}</p>
+        <p>
+          <a href={profile.linkedin}>
+            <img className="linkedin-icon"
+              src={
+                "https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
+              }
+              alt="Linkedinlogo"
+            />
+          </a>
+        </p>
+        <p className="posted-text">Posted: {formattedDate}</p>
+      </div>
       {/* <p>{profile.status}</p> */}
-      <p>Posted: {formattedDate}</p>
     </div>
   );
 };
