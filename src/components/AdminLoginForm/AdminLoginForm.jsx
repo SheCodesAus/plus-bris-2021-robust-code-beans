@@ -18,28 +18,35 @@ function AdminLogin() {
   };
 
   const postData = async () => {
-
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}api-token-auth/`,
-      {
-        method: "post",
-        headers:
-          {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}api-token-auth/`,
+        {
+          method: "post",
+          headers: {
             "Content-Type": "application/json",
           },
-        body: JSON.stringify(credentials),
-      }
-    );
-    return response.json();
+          body: JSON.stringify(credentials),
+        }
+      );
+      return response.json();
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (credentials.username && credentials.password) {
       postData().then((response) => {
-        window.localStorage.setItem("token", response.token);
-        console.log("token:", response.token);
-        navigate("/admin");
+        console.log(response);
+        if (response.non_field_errors?.length > 0) {
+          alert("You require administrator access to this area");
+        } else {
+          window.localStorage.setItem("token", response.token);
+          console.log("token:", response.token);
+          navigate("/admin");
+        }
       });
     }
   };
