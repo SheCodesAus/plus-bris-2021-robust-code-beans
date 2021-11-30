@@ -34,7 +34,6 @@ function HomePage() {
       });
   }, []);
 
-
   const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
@@ -42,7 +41,7 @@ function HomePage() {
       (profile) => profile.gender === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByGender
     });
   };
@@ -54,7 +53,7 @@ function HomePage() {
       (profile) => profile.experience === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByExperience
     });
   };
@@ -110,7 +109,9 @@ function HomePage() {
       </>
       ) : (
         <div>
-          <h1 style={{ color: "red" }}>Nope</h1>
+          <h1 style={{ color: "red" }}>
+            There are no profiles that fit your criteria. Please try again.
+          </h1>
         </div>
       )}
     </div>
