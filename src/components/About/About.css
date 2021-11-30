@@ -1,4 +1,6 @@
 .container {
+  display: flex;
+  justify-content: space-evenly;
   background: linear-gradient(270deg, cornflowerblue, #fcc467, #efefef);
   background-size: 400% 400%;
 
