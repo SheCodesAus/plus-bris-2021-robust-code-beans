@@ -5,7 +5,7 @@ import "../../App.css";
 function AdminLogin() {
   const [credentials, setCredentials] = useState({
     username: "",
-    password: "",
+    password: ""
   });
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function AdminLogin() {
     const { id, value } = e.target;
     setCredentials((prevCredentials) => ({
       ...prevCredentials,
-      [id]: value,
+      [id]: value
     }));
   };
 
@@ -24,14 +24,14 @@ function AdminLogin() {
         {
           method: "post",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/json"
           },
-          body: JSON.stringify(credentials),
+          body: JSON.stringify(credentials)
         }
       );
       return response.json();
     } catch (error) {
-      alert(error.message);
+      alert("Sucker");
     }
   };
 
@@ -40,7 +40,7 @@ function AdminLogin() {
     if (credentials.username && credentials.password) {
       postData().then((response) => {
         console.log(response);
-        if (response.non_field_errors?.length > 0) {
+        if (response.non_field_errors.length > 0) {
           alert("You require administrator access to this area");
         } else {
           window.localStorage.setItem("token", response.token);

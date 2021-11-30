@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AdminPage from "./pages/AdminPage";
 import AdminLogin from "./components/AdminLoginForm/AdminLoginForm";
@@ -40,13 +35,6 @@ function App() {
           <Navbar />
         </div>
         <Routes>
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return <Navigate to="/home" />;
-            }}
-          />
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/admin" element={<AdminPage />} />
