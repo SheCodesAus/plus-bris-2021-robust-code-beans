@@ -45,7 +45,7 @@ function AdminLogin() {
   };
 
   return (
-    <div className="form">
+    <div className="adminform">
       <form className="formcontent">
         <div>
           <label htmlFor="username">Username:</label>
