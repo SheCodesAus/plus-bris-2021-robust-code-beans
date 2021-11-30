@@ -1,15 +1,14 @@
 import React from "react";
 import "./About.css";
+import team from "./RobustCodingBeans.png";
+import sarab from "./Sarab.png";
 
 function About() {
   return (
     <div className="about">
       <div class="container">
-        <img
-          class="img-fluid"
-          src="https://media.istockphoto.com/photos/female-startup-business-team-picture-id1039076422?b=1&k=20&m=1039076422&s=170667a&w=0&h=_2QSPKDWmPmw3a1VxjxcHSpoNaYyygh6aRvms9C_X2U="
-          alt=""
-        />
+        <img class="imageColumn" src={team} alt="team image" />
+        <img class="imageColumn" src={sarab} alt="Sara image" />
       </div>
       <div class="col-lg-5">
         <h1 style={{ background: "#000" }}>
