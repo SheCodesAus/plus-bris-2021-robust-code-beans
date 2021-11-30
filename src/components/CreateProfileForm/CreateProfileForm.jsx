@@ -1,33 +1,71 @@
 import React, { useState, useHistory } from "react";
-import "./CreateProfileForm.css";
+import { useNavigate } from "react-router-dom";
+// import "./CreateProfileForm.css";
+import axios from "axios";
+import "../../App.css";
 
 function CreateProfileForm() {
+  const [selectedFile, setSelectedFile] = useState(null)
   const [profileData, setProfileData] = useState({
+    status: "Pending",
+    first_name: "",
+    bio: "",
+    gender: "",
+    role: "", 
+    company: "", 
+    experience: "",
+    facts: "",
+    linkedin: "",
+    photo: "",
     date_created: new Date().toISOString(),
-    is_open: true,
   });
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
+    console.log("handle change")
     const { id, value } = e.target;
-    setProfileData((prevProfileData) => ({
-      ...prevProfileData,
+    setProfileData({    
+      ...profileData,
       [id]: value,
-    }));
+    }); 
+    console.log("profileData: ", profileData)
   };
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log("submitData: ", profileData)
+ 
+ const fileSelectedHandler = event => {        
+  setSelectedFile(event.target.files[0])
+}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
+    // Step 1 - UPLOAD PHOTO TO CLOUNDINARY
+    const fd = new FormData();
+    fd.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
+    fd.append('file', selectedFile);
+    fd.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
+    const upload_response = await axios.post (`https://api.cloudinary.com/v1_1/tech-is-me/image/upload`, fd);
+
+    // GET THE PHOTO URL FROM CLOUNDINARY AFTER UPLOAD
+    const photoURL= upload_response.data.url
+
+    // SENDING INFORMATION TO DRF WITH THE URL
+    const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
       method: "post",
       headers: {
-        Authorization: `Token ${window.localStorage.getItem("token")}`,
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(profileData),
-    });
-    history.push("/");
+      body: JSON.stringify({ ...profileData, photo: photoURL })
+    }).then((response) => {
+      console.log("response: ", response)
+      console.log("Hi world")
+      return response.json();
+    })
+    navigate("/confirm-submit");
   };
 
   return (
@@ -35,32 +73,111 @@ function CreateProfileForm() {
       <div class="form">
         <form class="formcontent">
           <div>
-            <label>First Name: </label>
-            <input />
+            <label for="first_name">First Name: </label>
+            <input
+              className="formlines"
+              value={profileData.first_name}
+              type="text"
+              id="first_name"
+              placeholder="Enter your first name"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label>Gender: </label>
+            <label for="gender">Gender: </label>
+            <select id="gender" name="gender" onChange={handleChange}>
+              <option value="Woman">Woman</option>
+              <option value="Non-binary">Non Binary</option>
+              <option value="not_set">Prefer not to disclose</option>
+            </select>
           </div>
           <div>
-            <label>Role: </label>
+            <label for="role">Role: </label>
+            <input
+              className="formlines"
+              value={profileData.role}
+              type="text"
+              id="role"
+              placeholder="Enter your current role"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label>Company: </label>
+            <label for="company">Company: </label>
+            <input
+              className="formlines"
+              value={profileData.company}
+              type="text"
+              id="company"
+              placeholder="Enter your current company"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label>Experience: </label>
+            <label for="experience">Experience: </label>
+            <select id="experience" name="experience" onChange={handleChange}>
+              <option value=""> </option>
+              <option value="not_set">Prefer not to disclose</option>
+              <option value="1-3">1-3 years</option>
+              <option value="3-5">3-5 years</option>
+              <option value="5-7">5-7 years</option>
+              <option value="7-9">7-9 years</option>
+              <option value="10+">10+ years</option>
+            </select>
           </div>
           <div>
-            <label>Bio: </label>
+            <label for="bio">Bio: </label>
+            <input
+              className="formlines"
+              value={profileData.bio}
+              type="text"
+              id="bio"
+              placeholder="Enter a short biography"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label>Fun Facts: </label>
+            <label for="facts">Fun Facts: </label>
+            <input
+              className="formlines"
+              value={profileData.facts}
+              type="text"
+              id="facts"
+              placeholder="List one or more fun facts about yourself"
+              onChange={handleChange}
+            />
           </div>
           <div>
-            <label>Linkedin: </label>
+            <label for="linkedin">Linkedin: </label>
+            <input
+              className="formlines"
+              value={profileData.linkedin}
+              type="text"
+              id="linkedin"
+              placeholder="Enter your Linkedin profile link"
+              onChange={handleChange}
+            />
           </div>
-          <div>
+          {/* <div>
             <label>Profile photo: </label>
+            <input
+              className="formlines"
+              value={profileData.photo}
+              type="text"
+              id="photo"
+              placeholder="Copy your photo link"
+              onChange={handleChange}
+            />
+          </div> */}
+          <div> 
+            <label> Upload Photo: </label>
+            <input type="file" onChange={fileSelectedHandler}/>
+
+          </div>
+          <div>
+            <button class="button" type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
           </div>
         </form>
       </div>

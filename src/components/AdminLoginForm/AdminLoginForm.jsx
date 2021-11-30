@@ -1,19 +1,75 @@
-import React from "react";
-import "./AdminLoginForm.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../../App.css";
 
 function AdminLogin() {
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [id]: value,
+    }));
+  };
+
+  const postData = async () => {
+
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}api-token-auth/`,
+      {
+        method: "post",
+        headers:
+          {
+            "Content-Type": "application/json",
+          },
+        body: JSON.stringify(credentials),
+      }
+    );
+    return response.json();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (credentials.username && credentials.password) {
+      postData().then((response) => {
+        window.localStorage.setItem("token", response.token);
+        console.log("token:", response.token);
+        navigate("/admin");
+      });
+    }
+  };
+
   return (
-    <div class="form">
-      <form class="formcontent">
-        <div></div>
-        <button
-          type="submit"
-          onClick={() => {
-            console.log("Submitting admin login form");
-          }}
-        >
-          Log in
-        </button>
+    <div className="form">
+      <form className="formcontent">
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter username"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <button class="button" type="submit" onClick={handleSubmit}>
+            Log in
+          </button>
+        </div>
       </form>
     </div>
   );

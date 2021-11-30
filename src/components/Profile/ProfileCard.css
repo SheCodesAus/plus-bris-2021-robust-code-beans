@@ -1,5 +1,44 @@
 .profile-card {
-    width: 95%;
-    box-shadow: 0 0 5px grey;
-    margin-bottom: 5%;
+  width: 95%;
+  box-shadow: 0 0 5px grey;
+  margin-bottom: 5%;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.featured-profile-title{
+  color: white;
+  font-size: 40px;
+}
+
+.featured-profile-card {
+  margin-top: 20px;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 20% 70%;
+  box-shadow: 0px 0px 10px rgb(2, 11, 20);
+}
+
+.feature-column-a{
+  padding-top: 20px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  border-style: solid;
+  background-color: rgb(27, 29, 42);
+  color: white;
+}
+
+.linkedin-icon{
+  height: 40px;
+}
+
+.profile-photo {
+width: 100px;
+height: 100px;
+border-radius: 100%;
+}
+
+.posted-text{
+  font-size: 14px;
 }
