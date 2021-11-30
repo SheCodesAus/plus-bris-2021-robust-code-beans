@@ -31,7 +31,7 @@ function AdminLogin() {
       );
       return response.json();
     } catch (error) {
-      alert("Sucker");
+      alert(error.message);
     }
   };
 
