@@ -108,7 +108,6 @@ function CreateProfileForm() {
           <div>
             <label for="role">Role: </label>
             <input
-              className="formlines"
               value={profileData.role}
               type="text"
               id="role"
@@ -119,7 +118,6 @@ function CreateProfileForm() {
           <div>
             <label for="company">Company: </label>
             <input
-              className="formlines"
               value={profileData.company}
               type="text"
               id="company"
@@ -141,19 +139,19 @@ function CreateProfileForm() {
           </div>
           <div>
             <label for="bio">Bio: </label>
-            <input
-              className="formlines"
+            <input 
+              className="big-input"
               value={profileData.bio}
               type="text"
               id="bio"
-              placeholder="Enter a short biography"
+              placeholder="Enter a short bio (300 characters max)"
               onChange={handleChange}
             />
           </div>
           <div>
             <label for="facts">Fun Facts: </label>
             <input
-              className="formlines"
+            className="big-input"
               value={profileData.facts}
               type="text"
               id="facts"
@@ -164,7 +162,6 @@ function CreateProfileForm() {
           <div>
             <label for="linkedin">Linkedin: </label>
             <input
-              className="formlines"
               value={profileData.linkedin}
               type="text"
               id="linkedin"
@@ -174,7 +171,9 @@ function CreateProfileForm() {
           </div>
           <div>
             <label> Upload Photo: </label>
-            <input type="file" onChange={fileSelectedHandler} />
+            <input 
+            className="upload"
+            type="file" onChange={fileSelectedHandler}/>
           </div>
           <div>
             <button class="button" type="submit" onClick={handleSubmit}>
