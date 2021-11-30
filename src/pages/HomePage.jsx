@@ -34,7 +34,6 @@ function HomePage() {
       });
   }, []);
 
-
   const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
@@ -42,7 +41,7 @@ function HomePage() {
       (profile) => profile.gender === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByGender
     });
   };
@@ -54,13 +53,14 @@ function HomePage() {
       (profile) => profile.experience === selectedOption
     );
     setProfileData({
-      ...profileData, 
+      ...profileData,
       filteredData: profileDataByExperience
     });
   };
 
   return (
     <div>
+      <div class="drop-down">
       <select
         className="custom-select"
         aria-label="Filter Profiles By Gender"
@@ -71,7 +71,9 @@ function HomePage() {
         <option value="Non-binary">Non-binary</option>
         <option value="Prefer not disclose">Prefer not to disclose</option>
       </select>
+      </div>
       <span className="focus"></span>
+      <div class="drop-down">
       <select
         className="custom-select"
         aria-label="Filter Profiles By Years of Experience"
@@ -84,12 +86,14 @@ function HomePage() {
         <option value="7-9">7-9</option>
         <option value="10+">10+</option>
       </select>
-
+      </div>
       <span className="focus"></span>
 
       {profileData && profileData.filteredData.length > 0 ? (
       <>
+        <div class="search-field">
         <SearchBar placeholder="Search profiles..." data={profileData.initialData} />
+        </div>
         <ProfileCard
           profile={getRandomProfileToFeature(profileData.filteredData)}
           featured={true}
@@ -105,7 +109,9 @@ function HomePage() {
       </>
       ) : (
         <div>
-          <h1 style={{ color: "red" }}>Nope</h1>
+          <h1 style={{ color: "red" }}>
+            There are no profiles that fit your criteria. Please try again.
+          </h1>
         </div>
       )}
     </div>
