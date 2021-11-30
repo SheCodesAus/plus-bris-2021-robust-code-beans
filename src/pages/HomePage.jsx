@@ -8,61 +8,64 @@ function getRandomProfileToFeature(profiles) {
 }
 
 function HomePage() {
-  const [profileData, setProfileData] = useState([]);
+  const [profileData, setProfileData] = useState({
+    initialData: [],
+    filteredData: []
+  });
+
+  function filterApproved(data) {
+    return data.status === "Approved";
+  }
 
   useEffect(() => {
-    console.log("homepage fetch");
+    // console.log("homepage fetch");
     fetch(`${process.env.REACT_APP_API_URL}profiles/`)
       .then((results) => {
         return results.json();
       })
       .then((data) => {
-        setProfileData(data);
-        console.log("data: ", data);
+        setProfileData({
+          initialData: data.filter(filterApproved),
+          filteredData: data.filter(filterApproved)
+        });
       })
       .catch((e) => {
         console.log("OH NOOO: ", e);
       });
   }, []);
 
-  function filter_profiles(profile) {
-    return profile.status === "Approved";
-  }
- const filtered = profileData.filter(filter_profiles)
- 
-//  console.log("filtered list: ", filtered); 
-  // const filtered = [];
-
-
-  const handleFilter = (event) => {
+  const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
-    const filteredByGender = profileData.filter(
+    const profileDataByGender = profileData.initialData.filter(
       (profile) => profile.gender === selectedOption
     );
-    setProfileData(filteredByGender);
+    setProfileData({
+      ...profileData, 
+      filteredData: profileDataByGender
+    });
   };
 
-  const filteredexp = profileData.filter(filter_profiles);
-  console.log("filtered list: ", filteredexp);
-  
   const handleFilterExp = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
-    const filteredByExperience = profileData.filter(
+    const profileDataByExperience = profileData.initialData.filter(
       (profile) => profile.experience === selectedOption
     );
-    setProfileData(filteredByExperience);
+    setProfileData({
+      ...profileData, 
+      filteredData: profileDataByExperience
+    });
   };
 
-
+  console.log("profileData: ", profileData)
 
   return (
     <div>
       <select
         className="custom-select"
         aria-label="Filter Profiles By Gender"
-        onChange={handleFilter}
+        onChange={handleFilterGender}
       >
         <option value="All">Filter By Gender</option>
         <option value="Woman">Woman</option>
@@ -83,27 +86,27 @@ function HomePage() {
         <option value="10+">10+</option>
       </select>
       <span className="focus"></span>
-      {!filtered.length && (
+
+      {profileData && profileData.filteredData.length > 0 ? (
+      <>
+        <SearchBar placeholder="Search profiles..." data={profileData.initialData} />
+        <ProfileCard
+          profile={getRandomProfileToFeature(profileData.filteredData)}
+          featured={true}
+        />
+        <h3>APPROVED PROFILES</h3>
+        <div className="profile-list">
+          {profileData.filteredData.map((profile, key) => {
+            return (
+              <ProfileCard key={key} profile={profile} featured={false} />
+            );
+          })}
+        </div>
+      </>
+      ) : (
         <div>
           <h1 style={{ color: "red" }}>Nope</h1>
         </div>
-      )}
-      {filtered.length > 0 && (
-        <>
-          <SearchBar placeholder="Search profiles..." data={filtered} />
-          <ProfileCard
-            profile={getRandomProfileToFeature(filtered)}
-            featured={true}
-          />
-          <h3>APPROVED PROFILES</h3>
-          <div className="profile-list">
-            {filtered.map((profile, key) => {
-              return (
-                <ProfileCard key={key} profile={profile} featured={false} />
-              );
-            })}
-          </div>
-        </>
       )}
     </div>
   );
