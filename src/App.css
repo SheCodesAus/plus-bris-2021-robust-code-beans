@@ -7,6 +7,15 @@
   row-gap: 10px;
 }
 
+.feature-container{
+  display: flex;
+  justify-content: center;
+  /* border-style: solid; */
+  margin-bottom: 25px;
+  margin-top: 20px;
+  margin-right: 40px;
+}
+
 p {
   font-size: large;
   margin: 5%;
@@ -39,10 +48,4 @@ label {
 .button {
   float: right;
   margin: 10px;
-}
-
-.feature-profile {
-  border-style: solid;
-  border: black;
-  background-color: blueviolet;
 }

@@ -28,11 +28,10 @@ function HomePage() {
   function filter_profiles(profile) {
     return profile.status === "Approved";
   }
- const filtered = profileData.filter(filter_profiles)
- 
-//  console.log("filtered list: ", filtered); 
-  // const filtered = [];
+  const filtered = profileData.filter(filter_profiles);
 
+  //  console.log("filtered list: ", filtered);
+  // const filtered = [];
 
   const handleFilter = (event) => {
     const selectedOption = event.target.value;
@@ -45,7 +44,7 @@ function HomePage() {
 
   const filteredexp = profileData.filter(filter_profiles);
   console.log("filtered list: ", filteredexp);
-  
+
   const handleFilterExp = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
@@ -54,8 +53,6 @@ function HomePage() {
     );
     setProfileData(filteredByExperience);
   };
-
-
 
   return (
     <div>
@@ -82,6 +79,7 @@ function HomePage() {
         <option value="7-9">7-9</option>
         <option value="10+">10+</option>
       </select>
+
       <span className="focus"></span>
       {!filtered.length && (
         <div>
@@ -91,11 +89,12 @@ function HomePage() {
       {filtered.length > 0 && (
         <>
           <SearchBar placeholder="Search profiles..." data={filtered} />
-          <ProfileCard
-            profile={getRandomProfileToFeature(filtered)}
-            featured={true}
-          />
-          <h3>APPROVED PROFILES</h3>
+          <div className="feature-container">
+            <ProfileCard
+              profile={getRandomProfileToFeature(filtered)}
+              featured={true}
+            />
+          </div>
           <div className="profile-list">
             {filtered.map((profile, key) => {
               return (
