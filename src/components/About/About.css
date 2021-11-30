@@ -1,0 +1,79 @@
+.container {
+  background: linear-gradient(270deg, cornflowerblue, #fcc467, #efefef);
+  background-size: 400% 400%;
+
+  -webkit-animation: shimmer 30s ease infinite;
+  -moz-animation: shimmer 30s ease infinite;
+  animation: shimmer 30s ease infinite;
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.focus {
+  color: blue;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.imageColumn {
+  width: 20%;
+  margin: 2%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.img-fluid {
+  padding: 1%;
+  width: 30%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 50%;
+  vertical-align: -webkit-baseline-middle;
+}
+/* 
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    font-size: 16px;
+  }
+} */

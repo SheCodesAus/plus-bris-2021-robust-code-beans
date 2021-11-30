@@ -34,6 +34,7 @@ function HomePage() {
       });
   }, []);
 
+
   const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);
@@ -57,8 +58,6 @@ function HomePage() {
       filteredData: profileDataByExperience
     });
   };
-
-  console.log("profileData: ", profileData)
 
   return (
     <div>
@@ -85,6 +84,7 @@ function HomePage() {
         <option value="7-9">7-9</option>
         <option value="10+">10+</option>
       </select>
+
       <span className="focus"></span>
 
       {profileData && profileData.filteredData.length > 0 ? (

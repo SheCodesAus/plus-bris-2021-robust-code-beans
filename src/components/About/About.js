@@ -1,14 +1,14 @@
 import React from "react";
+import "./About.css";
+import team from "./RobustCodingBeans.png";
+import sarab from "./Sarab.png";
 
 function About() {
   return (
     <div className="about">
       <div class="container">
-        <img
-          class="img-fluid rounded mb-4 mb-lg-0"
-          src="http://placehold.it/900x400"
-          alt=""
-        />
+        <img class="imageColumn" src={team} alt="team image" />
+        <img class="imageColumn" src={sarab} alt="Sara image" />
       </div>
       <div class="col-lg-5">
         <h1 style={{ background: "#000" }}>
@@ -27,6 +27,28 @@ function About() {
           a hub where the community can create profiles of women and non-binary
           folk. The idea would be that we could share this website to show young
           people that anyone can work in Tech.
+          <br></br>
+          <br></br>
+          This website is our our final group project for She Codes Brisbane
+          Cohort 2021 and an example of women giving "Tech" a go! Our group, the
+          RobustCodingBeans, worked with our client Sara Borgstrom (BHP) to
+          develop a MVP (Minimum Viable Product) website with the product aim
+          above.
+          <br></br>
+          <br></br>
+          An MVP is the base features and functionality required by the client
+          to meet initial approval. In the "real world" we would then continue
+          to work through improvements and additional features in communication
+          with the client until a final end point is reached.
+          <br></br>
+          <br></br>
+          We had only a few weeks to complete the MVP while all juggling work,
+          family and other commitments. We did push ourselves to implement
+          functionality that we had not used previously such as image uploding,
+          filters based on multiple criteria, profile approval/decline process
+          and also tried out MUI Library for our navigation. This was our first
+          time working collaboratively using github which was a learning curve
+          but part of the process.
         </p>
       </div>
     </div>
