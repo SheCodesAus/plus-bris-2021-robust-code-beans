@@ -41,14 +41,6 @@
   }
 }
 
-.img-fluid {
-  padding: 1%;
-  width: 30%;
-  border-bottom-left-radius: 50%;
-  border-top-right-radius: 50%;
-  vertical-align: -webkit-baseline-middle;
-}
-
 .focus {
   color: blue;
 }
@@ -59,9 +51,20 @@ h1 {
   color: #fff;
 }
 
-.col-lg-5 {
+.imageColumn {
+  width: 20%;
+  margin: 2%;
+  display: inline-flex;
+  justify-content: center;
 }
 
+.img-fluid {
+  padding: 1%;
+  width: 30%;
+  border-bottom-left-radius: 50%;
+  border-top-right-radius: 50%;
+  vertical-align: -webkit-baseline-middle;
+}
 /* 
 @media only screen and (max-width: 768px) {
   body {
