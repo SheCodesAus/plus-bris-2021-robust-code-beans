@@ -34,6 +34,7 @@ function HomePage() {
       });
   }, []);
 
+
   const handleFilterGender = (event) => {
     const selectedOption = event.target.value;
     console.log(selectedOption);

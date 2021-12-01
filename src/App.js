@@ -40,13 +40,6 @@ function App() {
           <Navbar />
         </div>
         <Routes>
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return <Navigate to="/home" />;
-            }}
-          />
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/admin" element={<AdminPage />} />
