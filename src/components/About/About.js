@@ -7,8 +7,8 @@ function About() {
   return (
     <div className="about">
       <div class="container">
-        <img class="imageColumn" src={team} alt="team image" />
         <img class="imageColumn" src={sarab} alt="Sara image" />
+        <img class="imageColumn" src={team} alt="team image" />
       </div>
       <div class="col-lg-5">
         <h1 className="heading">Showcasing Diverse Role Models in Tech</h1>
