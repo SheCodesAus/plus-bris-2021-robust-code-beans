@@ -21,8 +21,7 @@ function HomePage() {
     // console.log("homepage fetch");
     console.log(process.env.REACT_APP_API_URL);
     console.log(`${process.env.REACT_APP_API_URL}profiles/`);
-    fetch('https://frozen-anchorage-88305.herokuapp.com/profiles/')
-    // fetch(`${process.env.REACT_APP_API_URL}profiles/`)
+    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
       .then((results) => {
         console.log(results);
         return results.json();
