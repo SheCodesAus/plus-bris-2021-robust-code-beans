@@ -11,9 +11,7 @@ function About() {
         <img class="imageColumn" src={sarab} alt="Sara image" />
       </div>
       <div class="col-lg-5">
-        <h1 className="heading" >
-          Showcasing Diverse Role Models in Tech
-        </h1>
+        <h1 className="heading">Showcasing Diverse Role Models in Tech</h1>
         <p>
           Too many times we have heard young people ask us questions such as
           <span class="focus"> "can women be software engineers?"</span> or
@@ -31,7 +29,7 @@ function About() {
           <br></br>
           This website is our our final group project for She Codes Brisbane
           Cohort 2021 and an example of women giving "Tech" a go! Our group, the
-          RobustCodingBeans, worked with our client Sara Borgstrom (BHP) to
+          Robust-Code-Beans, worked with our client Sara Borgstrom (BHP) to
           develop a MVP (Minimum Viable Product) website with the product aim
           above.
           <br></br>
