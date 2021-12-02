@@ -10,7 +10,6 @@
 .feature-container{
   display: flex;
   justify-content: center;
-  /* border-style: solid; */
   margin-bottom: 25px;
   margin-top: 20px;
   margin-right: 40px;
@@ -22,30 +21,69 @@ p {
 }
 
 .form {
+  height:750px;
+  font-size: 16px;
   margin-top: 2%;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
-  width: 70%;
+  padding: 40px;
+  width: 50%;
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
   background-color: cornflowerblue;
 }
 
-label {
-  display: inline-block;
-  width: 250px;
-  text-align: right;
-  margin-right: 1em;
+.adminform {
+  height:200px;
+  font-size: 16px;
+  margin-top: 2%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px;
+  width: 50%;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
+  background-color: rgb(255, 189, 89);
 }
 
-.formlines {
+
+input, select {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 20px;
+  width: 320px;
+  height: 30px;
+  border-style: none;
+  font-size: 16px;
+}
+
+label {
   display: inline-block;
-  margin-left: 46px;
-  width: 20em;
+  width: 15em;
+  text-align: right;
+  margin-right: 1em;
+  font-weight: bold;
 }
 
 .button {
-  float: right;
   margin: 10px;
+  height: 30px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  border-style: none;
+  width: 320px;
+  font-size: 16px;
+  margin-left: 260px;
+}
+
+.big-input{
+  height: 125px;
+}
+
+.upload{
+  border-radius: 20px;
+  /* border-style: solid; */
+  background-color: white;
+  color: black;
 }

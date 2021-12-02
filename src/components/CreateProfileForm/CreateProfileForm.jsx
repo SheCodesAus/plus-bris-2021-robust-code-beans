@@ -1,71 +1,84 @@
 import React, { useState, useHistory } from "react";
 import { useNavigate } from "react-router-dom";
-// import "./CreateProfileForm.css";
 import axios from "axios";
 import "../../App.css";
 
 function CreateProfileForm() {
-  const [selectedFile, setSelectedFile] = useState(null)
+  const [selectedFile, setSelectedFile] = useState(null);
   const [profileData, setProfileData] = useState({
     status: "Pending",
     first_name: "",
     bio: "",
     gender: "",
-    role: "", 
-    company: "", 
+    role: "",
+    company: "",
     experience: "",
     facts: "",
     linkedin: "",
-    photo: "",
-    date_created: new Date().toISOString(),
+    date_created: new Date().toISOString()
   });
 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    console.log("handle change")
+    console.log("handle change");
     const { id, value } = e.target;
-    setProfileData({    
+    setProfileData({
       ...profileData,
-      [id]: value,
-    }); 
-    console.log("profileData: ", profileData)
+      [id]: value
+    });
+    console.log("profileData: ", profileData);
   };
 
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log("submitData: ", profileData)
- 
- const fileSelectedHandler = event => {        
-  setSelectedFile(event.target.files[0])
-}
+  const fileSelectedHandler = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Step 1 - UPLOAD PHOTO TO CLOUNDINARY
-    const fd = new FormData();
-    fd.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
-    fd.append('file', selectedFile);
-    fd.append('upload_preset', process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET);
-    const upload_response = await axios.post (`https://api.cloudinary.com/v1_1/tech-is-me/image/upload`, fd);
+    const inputs = Object.values(profileData);
+    console.log(inputs);
+    const checkemptyinputs = inputs.includes("");
+    console.log(checkemptyinputs);
 
-    // GET THE PHOTO URL FROM CLOUNDINARY AFTER UPLOAD
-    const photoURL= upload_response.data.url
+    if (checkemptyinputs) {
+      alert("Please complete all fields");
+      return;
+    } else {
+      // Step 1 - UPLOAD PHOTO TO CLOUNDINARY
+      const fd = new FormData();
+      fd.append("api_key", process.env.REACT_APP_CLOUDINARY_API_KEY);
+      fd.append("file", selectedFile);
+      fd.append(
+        "upload_preset",
+        process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+      );
+      const upload_response = await axios.post(
+        `https://api.cloudinary.com/v1_1/tech-is-me/image/upload`,
+        fd
+      );
 
-    // SENDING INFORMATION TO DRF WITH THE URL
-    const response = await fetch(`${process.env.REACT_APP_API_URL}profiles/`, {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ ...profileData, photo: photoURL })
-    }).then((response) => {
-      console.log("response: ", response)
-      console.log("Hi world")
-      return response.json();
-    })
-    navigate("/confirm-submit");
+      // GET THE PHOTO URL FROM CLOUNDINARY AFTER UPLOAD
+      const photoURL = upload_response.data.url;
+
+      // SENDING INFORMATION TO DRF WITH THE URL
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}profiles/`,
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ ...profileData, photo: photoURL })
+        }
+      ).then((response) => {
+        console.log("response: ", response);
+        console.log("Hi world");
+        return response.json();
+      });
+      navigate("/confirm-submit");
+    }
+    return;
   };
 
   return (
@@ -86,6 +99,7 @@ function CreateProfileForm() {
           <div>
             <label for="gender">Gender: </label>
             <select id="gender" name="gender" onChange={handleChange}>
+              <option value=""> </option>
               <option value="Woman">Woman</option>
               <option value="Non-binary">Non Binary</option>
               <option value="not_set">Prefer not to disclose</option>
@@ -94,7 +108,6 @@ function CreateProfileForm() {
           <div>
             <label for="role">Role: </label>
             <input
-              className="formlines"
               value={profileData.role}
               type="text"
               id="role"
@@ -105,7 +118,6 @@ function CreateProfileForm() {
           <div>
             <label for="company">Company: </label>
             <input
-              className="formlines"
               value={profileData.company}
               type="text"
               id="company"
@@ -127,19 +139,19 @@ function CreateProfileForm() {
           </div>
           <div>
             <label for="bio">Bio: </label>
-            <input
-              className="formlines"
+            <input 
+              className="big-input"
               value={profileData.bio}
               type="text"
               id="bio"
-              placeholder="Enter a short biography"
+              placeholder="Enter a short bio (300 characters max)"
               onChange={handleChange}
             />
           </div>
           <div>
             <label for="facts">Fun Facts: </label>
             <input
-              className="formlines"
+            className="big-input"
               value={profileData.facts}
               type="text"
               id="facts"
@@ -150,7 +162,6 @@ function CreateProfileForm() {
           <div>
             <label for="linkedin">Linkedin: </label>
             <input
-              className="formlines"
               value={profileData.linkedin}
               type="text"
               id="linkedin"
@@ -158,21 +169,11 @@ function CreateProfileForm() {
               onChange={handleChange}
             />
           </div>
-          {/* <div>
-            <label>Profile photo: </label>
-            <input
-              className="formlines"
-              value={profileData.photo}
-              type="text"
-              id="photo"
-              placeholder="Copy your photo link"
-              onChange={handleChange}
-            />
-          </div> */}
-          <div> 
+          <div>
             <label> Upload Photo: </label>
-            <input type="file" onChange={fileSelectedHandler}/>
-
+            <input 
+            className="upload"
+            type="file" onChange={fileSelectedHandler}/>
           </div>
           <div>
             <button class="button" type="submit" onClick={handleSubmit}>

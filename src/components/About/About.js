@@ -11,12 +11,12 @@ function About() {
         <img class="imageColumn" src={sarab} alt="Sara image" />
       </div>
       <div class="col-lg-5">
-        <h1 style={{ background: "#000" }}>
+        <h1 className="heading" >
           Showcasing Diverse Role Models in Tech
         </h1>
         <p>
           Too many times we have heard young people ask us questions such as
-          <span class="focus">"can women be software engineers?"</span> or
+          <span class="focus"> "can women be software engineers?"</span> or
           comments such as{" "}
           <span class="focus">
             "there is no one in tech who looks like me".
