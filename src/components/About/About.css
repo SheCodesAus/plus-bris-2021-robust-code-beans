@@ -9,6 +9,8 @@
  margin-top:30px;
  margin-bottom: 40px;;
  padding-left:100px;
+  display: flex;
+  justify-content: space-evenly;
   background: linear-gradient(270deg, cornflowerblue, #fcc467, #efefef);
   background-size: 400% 400%;
   -webkit-animation: shimmer 30s ease infinite;
@@ -79,15 +81,16 @@ h1 {
   width: 25%;
    margin: 2%;
   justify-content: center;
+  margin: 2%;
 }
-
+/* 
 .img-fluid {
   padding: 1%;
   width: 30%;
   border-bottom-left-radius: 50%;
   border-top-right-radius: 50%;
   vertical-align: -webkit-baseline-middle;
-}
+} */
 /* 
 @media only screen and (max-width: 768px) {
   body {
