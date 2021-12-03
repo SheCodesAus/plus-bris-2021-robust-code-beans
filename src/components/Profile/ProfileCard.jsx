@@ -7,7 +7,7 @@ const ProfileCard = ({ profile, featured }) => {
   return (
     <div className={featured ? "featured-profile-card" : "profile-card"}>
       <div className="feature-column-a">
-        {/* <p>{profile.id}</p> */}
+        
         {featured && (
           <p className="featured-profile-title">Meet {profile.first_name}</p>
         )}
@@ -36,7 +36,7 @@ const ProfileCard = ({ profile, featured }) => {
       <div className="feature-column-c">
         <p>{profile.bio}</p>
         <p>Facts! {profile.facts}</p>
-        
+        <p>{profile.id}</p>
       </div>
       {/* <p>{profile.status}</p> */}
     </div>

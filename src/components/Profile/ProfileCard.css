@@ -7,7 +7,7 @@
 }
 
 .featured-profile-title{
-  color: white;
+  color: black;
   font-size: 40px;
 
 }
@@ -19,8 +19,14 @@
   display: grid;
   grid-template-columns: 25% 25% 50%;
   box-shadow: 0px 0px 10px rgb(133, 135, 138);
-  background-color: rgb(228, 240, 236);
-}
+  border-style:solid;
+  border-color: rgb(228, 227, 226);
+  border-color: rgb(60, 60, 75);
+  border-radius:80px;
+  border-width:.8em;
+  border-end-end-radius: 50px;
+} 
+
 
 .feature-column-a{
   padding-top: 20px;
@@ -28,10 +34,12 @@
   flex-direction:column;
   align-items: center;
   border-style: solid;
-  background-color: rgb(27, 29, 42);
-  /* background-color: white; */
   color: white;
   border-style: solid;
+  border-color: rgb(246, 160, 32);
+  border-width: 0.3em;
+  border-radius:30%;
+  margin:20px
 }
 
 .feature-column-b{
@@ -54,12 +62,10 @@
 }
 
 .profile-photo {
-width: 220px;
+width: 230px;
 height: 250px;
-border-style: solid;
-border-color: white;
 margin-bottom: 6%;
-/* border-radius: 100%; */
+border-radius: 30%;
 }
 
 .posted-text{
