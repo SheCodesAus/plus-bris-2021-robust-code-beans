@@ -7,7 +7,7 @@ function AdminPage() {
 
   useEffect(() => {
     // console.log("admin page fetch"); 
-    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
+    fetch(`${process.env.REACT_APP_API_URL}/profiles/`)
       .then((results) => {
         return results.json();
       })
