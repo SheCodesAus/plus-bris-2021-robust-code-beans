@@ -63,7 +63,7 @@ function CreateProfileForm() {
 
       // SENDING INFORMATION TO DRF WITH THE URL
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}profiles/`,
+        `${process.env.REACT_APP_API_URL}/profiles/`,
         {
           method: "post",
           headers: {
