@@ -74,8 +74,7 @@ python 3.6+
     <li>POST <code>api-token-auth/</code> - Login</li>
     <li>GET <code>profiles/</code> - Return list of profiles.</li>
     <li>PUT <code>profiles/:id</code> - Update profile details.</li>
-    <li>DELETE <code>users/:id</code> - Delete user.</li>
-    <li>DELETE <code>pforiles/:id</code> - Delete profile.</li>
+    <li>DELETE <code>profiles/:id</code> - Delete profile.</li>
 </ol>
 
 <h2>Screenshots</h2>
@@ -90,7 +89,7 @@ Screenshot displaying Create Profile Form https://warm-cove-19976.herokuapp.com/
 ![CreateProfileForm_screenshot](screenshots/CreateProfileForm.png "Screenshot showing Create Profile Form")
 
 Screenshot displaying Admin Login Form https://warm-cove-19976.herokuapp.com/admin-login endpoint
-![AdminLoginForm_screenshot](screenshots/AdminLoginForm.png "Screenshot showing Admin Login Form")
+![AdminLoginForm_screenshot](screenshots/AdminLogin.png "Screenshot showing Admin Login Form")
 
 Screenshot displaying Admin Page https://warm-cove-19976.herokuapp.com/admin endpoint
 ![AdminPage_screenshot](screenshots/AdminPage.png "Screenshot showing Admin Page")
