@@ -1,23 +1,21 @@
+
 .profile-list {
+  margin-left: 3%;
+  margin-right: 3%;
   display: grid;
   justify-content: center;
-  grid-template-columns: 30% 30% 30%;
-  grid-column-gap: 10px;
-  column-gap: 10px;
-  row-gap: 10px;
+  grid-template-columns: 25% 25% 25% 25%;
+  /* grid-column-gap: 5px;
+  column-gap: 10px; */
+  margin-top: 1%;
+ 
 }
 
-.feature-container{
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-  margin-top: 20px;
-  margin-right: 40px;
-}
 
 p {
   font-size: large;
   margin: 5%;
+  /* color: black; */
 }
 
 .form {
@@ -27,10 +25,13 @@ p {
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  padding: 40px;
+  padding: 60px;
+  /* padding-top: 20px; */
   width: 50%;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
+  border-radius: 30% 50% 70% 30% / 30% 30% 40% 70% !important;
   background-color: cornflowerblue;
+  border-style: solid;
+  border-color: rgb(60, 60, 75);
 }
 
 .adminform {
@@ -42,8 +43,10 @@ p {
   margin-right: auto;
   padding: 40px;
   width: 50%;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70% !important;
+  border-radius: 30% 50% 60% 30% / 30% 30% 70% 70% !important;
   background-color: rgb(255, 189, 89);
+  border-style: solid;
+  border-color: rgb(60, 60, 75);
 }
 
 
@@ -83,7 +86,20 @@ label {
 
 .upload{
   border-radius: 20px;
-  /* border-style: solid; */
   background-color: white;
   color: black;
+}
+
+.filter{
+  width: 400px;
+} 
+
+.search-and-filter-div{
+  margin-top: 2%;
+  justify-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
 }

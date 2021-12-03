@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../App.css";
@@ -10,6 +11,7 @@ function AdminLogin() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    console.log("handlechange")
     const { id, value } = e.target;
     setCredentials((prevCredentials) => ({
       ...prevCredentials,
@@ -35,21 +37,33 @@ function AdminLogin() {
     }
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (credentials.username && credentials.password) {
+  //     postData().then((response) => {
+  //       console.log(response);
+  //       if (response.non_field_errors?.length > 0) {
+  //         alert("You require administrator access to this area");
+  //       } else {
+  //         window.localStorage.setItem("token", response.token);
+  //         console.log("token:", response.token);
+  //         navigate("/admin");
+  //       }
+  //     });
+  //   }
+  // };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (credentials.username && credentials.password) {
       postData().then((response) => {
-        console.log(response);
-        if (response.non_field_errors?.length > 0) {
-          alert("You require administrator access to this area");
-        } else {
-          window.localStorage.setItem("token", response.token);
-          console.log("token:", response.token);
-          navigate("/admin");
-        }
+        window.localStorage.setItem("token", response.token);
+        console.log("token:", response.token);
+        navigate("/admin");
       });
     }
   };
+  
 
   return (
     <div className="adminform">

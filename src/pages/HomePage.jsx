@@ -64,7 +64,8 @@ function HomePage() {
 
   return (
     <div>
-      <div class="drop-down">
+      <div className="search-and-filter-div">
+      <div className="filter">
       <select
         className="custom-select"
         aria-label="Filter Profiles By Gender"
@@ -77,7 +78,7 @@ function HomePage() {
       </select>
       </div>
       <span className="focus"></span>
-      <div class="drop-down">
+      <div className="filter">
       <select
         className="custom-select"
         aria-label="Filter Profiles By Years of Experience"
@@ -91,18 +92,24 @@ function HomePage() {
         <option value="10+">10+</option>
       </select>
       </div>
+      <div>
+        <SearchBar placeholder="Search profiles..." data={profileData.initialData} />
+        </div>
+      </div>
       <span className="focus"></span>
 
       {profileData && profileData.filteredData.length > 0 ? (
       <>
-        <div class="search-field">
+        {/* <div>
         <SearchBar placeholder="Search profiles..." data={profileData.initialData} />
-        </div>
+        </div> */}
+        
+
+
         <ProfileCard
           profile={getRandomProfileToFeature(profileData.filteredData)}
           featured={true}
         />
-        <h3>APPROVED PROFILES</h3>
         <div className="profile-list">
           {profileData.filteredData.map((profile, key) => {
             return (
