@@ -11,11 +11,29 @@
 <p>We had only a few weeks to complete the MVP while all juggling work, family and other commitments. We did push ourselves to implement functionality that we had not used previously such as image uploding, filters based on multiple criteria, profile approval/decline process and also tried out MUI Library for our navigation. This was our first time working collaboratively using github which was a learning curve but part of the process.</p>
 <br>
 
-<p>Link to GitHub repository: https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-react</p>
+<p>Link to DRF GitHub repository: https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-drf</p>
 
-<p>Deployed project: https://warm-cove-19976.herokuapp.com/</p>
+<p>Deployed DRF project: https://frozen-anchorage-88305.herokuapp.com/</p>
 
-<h4>Setup/Instructions</h4>
+<p>Link to React GitHub repository: https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-react</p>
+
+<p>Deployed React project: https://warm-cove-19976.herokuapp.com/</p>
+
+<h4>Setup/Instructions - DRF</h4>
+
+<p>Git clone the repository: (https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-drf-beans-react)</p>
+
+<p>Setup the virtual environment and install dependencies:</p>
+    <ul>
+        <li><code>python3 --version</code>to ensure you have python 3.6+ installed</li>
+        <li><code>virtualenv --version</code></li>
+        <li><code>python -m virtualenv venv</code></li>
+        <li><code>venv/Scripts/activate</code></li>
+        <li><code>python -m pip install --upgrade pip</code></li>
+        <li><code>pip install -r requirements.txt</code></li>
+    </ul>
+
+<h4>Setup/Instructions - React</h4>
 
 <p>Git clone the repository: (https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-react)</p>
 
@@ -29,6 +47,7 @@
         <li><code>npm install react-router-dom</code></li>
         <li><code>npm start</code></li>
     </ul>
+
 <h4>Run locally:</h4>
 <p>Run backend from new terminal:</p>
 <ul>
@@ -47,7 +66,7 @@
 
 <h4>Dependencies</h4>
 react-router-dom: ^6.0.2
-
+python 3.6+
 
 <h2>Insomnia API Endpoints</h2>
 <ol>
@@ -57,7 +76,7 @@ react-router-dom: ^6.0.2
     <li>PUT <code>profiles/:id</code> - Update profile details.</li>
     <li>DELETE <code>users/:id</code> - Delete user.</li>
     <li>DELETE <code>pforiles/:id</code> - Delete profile.</li>
-    </ol>
+</ol>
 
 <h2>Screenshots</h2>
 
@@ -91,6 +110,12 @@ Screenshot displaying Admin Page https://warm-cove-19976.herokuapp.com/admin end
   <li>Random feature profile displaying at top of Home Page</li>
   <li>Website is accessable</li>
   <li>Real profiles of women in tech</li>
+</ul>
+
+<h4>Validation</h4>
+<ul>
+    <li>User sees validation messages if create profile form data is incomplete.</li>
+    <li>User sees a confirmation message when profile is created successfully.</li>
 </ul>
 
 <h2>Permissions</h2>
