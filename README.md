@@ -1,71 +1,101 @@
-# plus-bris-2021-robust-code-beans-react
-## Getting Started with Create React App
+<h1>plus-bris-2021-robust-code-beans-react</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). hardboiledegg
+<p>Too many times we have heard young people ask us questions such as "can women be software engineers?" or comments such as "there is no one in tech who looks like me".</p>
+<br>
+<p>At She Codes we are trying to change that, this website was created as a hub where the community can create profiles of women and non-binary folk. The idea would be that we could share this website to show young people that anyone can work in Tech.</p>
+<br>
+<p>This website is our our final group project for She Codes Brisbane Cohort 2021 and an example of women giving "Tech" a go! Our group, the Robust-Code-Beans, worked with our client Sara Borgstrom (BHP) to develop a MVP (Minimum Viable Product) website with the product aim above.</p>
+<br>
+<p>An MVP is the base features and functionality required by the client to meet initial approval. In the "real world" we would then continue to work through improvements and additional features in communication with the client until a final end point is reached.</p>
+<br>
+<p>We had only a few weeks to complete the MVP while all juggling work, family and other commitments. We did push ourselves to implement functionality that we had not used previously such as image uploding, filters based on multiple criteria, profile approval/decline process and also tried out MUI Library for our navigation. This was our first time working collaboratively using github which was a learning curve but part of the process.</p>
+<br>
 
-## Available Scripts
+<p>Link to GitHub repository: https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-react</p>
 
-In the project directory, you can run:
+<p>Deployed project: https://warm-cove-19976.herokuapp.com/</p>
 
-### `npm start`
+<h4>Setup/Instructions</h4>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<p>Git clone the repository: (https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-react)</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p>Create a new react app using the create-react-app tool:</p>
+    <ul>
+        <li><code>npx create-react-app plus-bris-2021-robust-code-beans-react</code></li>
+    </ul>
+<p>Navigate into the directory, install react-router-dom and start the app:</p>
+    <ul>
+        <li><code>cd plus-bris-2021-robust-code-beans-react</code></li>
+        <li><code>npm install react-router-dom</code></li>
+        <li><code>npm start</code></li>
+    </ul>
+<h4>Run locally:</h4>
+<p>Run backend from new terminal:</p>
+<ul>
+<li>Launch the server: <code>python manage.py runserver</code></li>
+<li>Go to http://localhost:8000/ in your browser or test in Insomnia</li>
+    </ul>
 
-### `npm test`
+<p>Run frontend from new terminal:</p>
+    <ul>
+<li>Launch the client app from frontend directory: <code>npm start</code></li>
+<li>Go to http://localhost:3000/</li>
+</ul>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<h2>Stack</h2>
+<p>Tech is me was built with React. It is integrated with a backend API via<a href="https://github.com/SheCodesAus/plus-bris-2021-robust-code-beans-drf"> Django/DRF.</a>
 
-### `npm run build`
+<h4>Dependencies</h4>
+react-router-dom: ^6.0.2
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h2>Insomnia API Endpoints</h2>
+<ol>
+    <li>POST <code>profiles/</code> - Create new profile.</li>
+    <li>POST <code>api-token-auth/</code> - Login</li>
+    <li>GET <code>profiles/</code> - Return list of profiles.</li>
+    <li>PUT <code>profiles/:id</code> - Update profile details.</li>
+    <li>DELETE <code>users/:id</code> - Delete user.</li>
+    <li>DELETE <code>pforiles/:id</code> - Delete profile.</li>
+    </ol>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<h2>Screenshots</h2>
 
-### `npm run eject`
+<p>Screenshot displaying Home Page https://warm-cove-19976.herokuapp.com endpoint</p>
+![HomePage_screenshot](screenshots/HomePage.png "Screenshot showing Home Page")
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<p>Screenshot displaying About Page https://warm-cove-19976.herokuapp.com/about endpoint</p>
+![AboutPage_screenshot](screenshots/AboutPage.png "Screenshot showing About Page")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<p>Screenshot displaying Create Profile Form https://warm-cove-19976.herokuapp.com/create-profile endpoint</p>
+![CreateProfileForm_screenshot](screenshots/CreateProfileForm.png "Screenshot showing Create Profile Form")
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<p>Screenshot displaying Admin Login Form https://warm-cove-19976.herokuapp.com/admin-login endpoint</p>
+![AdminLoginForm_screenshot](screenshots/AdminLoginForm.png "Screenshot showing Admin Login Form")
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p>Screenshot displaying Admin Page https://warm-cove-19976.herokuapp.com/admin endpoint</p>
+![AdminPage_screenshot](screenshots/AdminPage.png "Screenshot showing Admin Page")
 
-## Learn More
+<h2>Functionality</h2>
+<ul>
+    <li>View profiles with a status of 'Approved'</li>
+    <li>Sort and filter profiles by Gender or Experience</li>
+    <li>Search for a profile</li>
+    <li>Upload a profile</li>
+    <li>Log in as an </li>
+    <li>Administrator can approve or decline profiles</li>
+</ul>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<h2>Features</h2>
+<ul>
+  <li>Random feature profile displaying at top of Home Page</li>
+  <li>Website is accessable</li>
+  <li>Real profiles of women in tech</li>
+</ul>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h2>Permissions</h2>
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<ul>
+    <li>Anyone can create a profile</li>
+    <li>Only an administrator can approve profiles</li>
+    </ul>
