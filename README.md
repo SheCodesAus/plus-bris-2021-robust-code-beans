@@ -61,19 +61,19 @@ react-router-dom: ^6.0.2
 
 <h2>Screenshots</h2>
 
-<p>Screenshot displaying Home Page https://warm-cove-19976.herokuapp.com endpoint</p>
+Screenshot displaying Home Page https://warm-cove-19976.herokuapp.com endpoint
 ![HomePage_screenshot](screenshots/HomePage.png "Screenshot showing Home Page")
 
-<p>Screenshot displaying About Page https://warm-cove-19976.herokuapp.com/about endpoint</p>
+Screenshot displaying About Page https://warm-cove-19976.herokuapp.com/about endpoint
 ![AboutPage_screenshot](screenshots/AboutPage.png "Screenshot showing About Page")
 
-<p>Screenshot displaying Create Profile Form https://warm-cove-19976.herokuapp.com/create-profile endpoint</p>
+Screenshot displaying Create Profile Form https://warm-cove-19976.herokuapp.com/create-profile endpoint
 ![CreateProfileForm_screenshot](screenshots/CreateProfileForm.png "Screenshot showing Create Profile Form")
 
-<p>Screenshot displaying Admin Login Form https://warm-cove-19976.herokuapp.com/admin-login endpoint</p>
+Screenshot displaying Admin Login Form https://warm-cove-19976.herokuapp.com/admin-login endpoint
 ![AdminLoginForm_screenshot](screenshots/AdminLoginForm.png "Screenshot showing Admin Login Form")
 
-<p>Screenshot displaying Admin Page https://warm-cove-19976.herokuapp.com/admin endpoint</p>
+Screenshot displaying Admin Page https://warm-cove-19976.herokuapp.com/admin endpoint
 ![AdminPage_screenshot](screenshots/AdminPage.png "Screenshot showing Admin Page")
 
 <h2>Functionality</h2>
