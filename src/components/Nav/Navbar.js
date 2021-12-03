@@ -58,7 +58,11 @@ function Navbar() {
             </Link>
             <Link to="/admin-login" className={classes.link}>
               Admin Login
+              </Link>
+            <Link to="/admin" className={classes.link}>
+              Admin
             </Link>
+            
           </div>
         )}
       </Toolbar>
