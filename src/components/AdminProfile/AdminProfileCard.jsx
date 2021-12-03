@@ -18,7 +18,7 @@ const AdminProfileCard = (props) => {
   }
     console.log("UPDATING STATUS");
 
-  fetch(`${process.env.REACT_APP_API_URL}profiles/${profile.id}/`, {
+  fetch(`${process.env.REACT_APP_API_URL}/profiles/${profile.id}/`, {
     method: "PUT",
     headers: {
       Authorization: `Token ${token}`,
