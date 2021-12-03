@@ -20,8 +20,8 @@ function HomePage() {
   useEffect(() => {
     // console.log("homepage fetch");
     console.log(process.env.REACT_APP_API_URL);
-    console.log(`${process.env.REACT_APP_API_URL}profiles/`);
-    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
+    console.log(`${process.env.REACT_APP_API_URL}/profiles/`);
+    fetch(`${process.env.REACT_APP_API_URL}/profiles/`)
       .then((results) => {
         console.log(results);
         return results.json();
