@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     console.log("App.js fetch");
-    fetch(`${process.env.REACT_APP_API_URL}profiles/`)
+    fetch(`${process.env.REACT_APP_API_URL}/profiles/`)
       .then((results) => {
         return results.json();
       })
@@ -29,7 +29,7 @@ function App() {
         console.log("data: ", data);
       })
       .catch((e) => {
-        console.log("OH NOOO: ", e);
+        console.log("WE GOT AN ERROR HERE: ", e);
       });
   }, []);
 
