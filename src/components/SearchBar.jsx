@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import SearchIcon from '@mui/icons-material/Search';
+import ProfileCard from "./Profile/ProfileCard";
 
 function SearchBar({ placeholder, data }) {
   const [searchedData, setSearchedData] = useState([]);
@@ -33,13 +33,13 @@ function SearchBar({ placeholder, data }) {
           {searchedData.map((profile, key) => {
             return (
               <div className="profile-card">
-                <p>{profile.id}</p>
-                <p>{profile.first_name}</p>
-                <p>{profile.photo}</p>
-                <p>{profile.gender}</p>
+                {/* <p>{profile.photo}</p> */}
+                <h2>{profile.first_name}</h2>
+                <p>Gender: {profile.gender}</p>
+                <p>Role: {profile.role}</p>
+                <p>Company: {profile.company}</p>
+                <p>Experience: {profile.experience} years</p>
                 <p>{profile.bio}</p>
-                <p>{profile.role}</p>
-                <p>{profile.company}</p>
                 <p>{profile.facts}</p>
                 <p>
                   <a href={profile.linkedin}>
@@ -51,7 +51,8 @@ function SearchBar({ placeholder, data }) {
                     />
                   </a>
                 </p>
-                <p>{profile.status}</p>
+                <p>{profile.id}</p>
+                {/* <p>{profile.status}</p> */}
               </div>
             );
           })}

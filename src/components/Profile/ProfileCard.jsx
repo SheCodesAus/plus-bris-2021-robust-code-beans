@@ -31,12 +31,12 @@ const ProfileCard = ({ profile, featured }) => {
           </a>
         </p>
         <p className="posted-text">Posted: {formattedDate}</p>
+        <p className="posted-text">{profile.id}</p>
       </div>
 
       <div className="feature-column-c">
         <p>{profile.bio}</p>
         <p>Facts! {profile.facts}</p>
-        <p>{profile.id}</p>
       </div>
       {/* <p>{profile.status}</p> */}
     </div>
